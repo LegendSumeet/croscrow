@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -79,7 +81,8 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -125,7 +128,8 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -174,7 +178,8 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -262,12 +267,23 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.network(
-                                        staggeredViewItemsRecord
+                                      child: CachedNetworkImage(
+                                        imageUrl: staggeredViewItemsRecord
                                             .images.firstOrNull!,
                                         width: 300.0,
                                         height: 210.0,
                                         fit: BoxFit.cover,
+                                        cacheKey:
+                                            'staggered_fixed_${staggeredViewItemsRecord.images.firstOrNull}',
+                                        placeholder: (context, url) =>
+                                            Container(
+                                          color: Colors.grey[200],
+                                          child: const Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                        ),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
                                       ),
                                     ),
                                   ),
@@ -284,11 +300,13 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.0, -1.0),
+                                            alignment:
+                                                const AlignmentDirectional(
+                                                    -1.0, -1.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 staggeredViewItemsRecord.brand,
@@ -318,11 +336,13 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                                             ),
                                           ),
                                           Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.0, -1.0),
+                                            alignment:
+                                                const AlignmentDirectional(
+                                                    -1.0, -1.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 staggeredViewItemsRecord.name,
@@ -470,12 +490,11 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             formatNumber(
                                               staggeredViewItemsRecord.price,
@@ -506,12 +525,11 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                                         ),
                                       ),
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            1.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(20.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             '20%OFF',
                                             style: FlutterFlowTheme.of(context)
@@ -521,7 +539,8 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .bodyMediumFamily,
-                                                  color: const Color(0xFFE06D26),
+                                                  color:
+                                                      const Color(0xFFE06D26),
                                                   fontSize: 10.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts

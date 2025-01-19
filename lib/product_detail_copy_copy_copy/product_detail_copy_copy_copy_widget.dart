@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -209,8 +211,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
-                                                0.0, -2.49),
+                                            alignment:
+                                                const AlignmentDirectional(
+                                                    0.0, -2.49),
                                             child: Container(
                                               height: 700.0,
                                               decoration: BoxDecoration(
@@ -314,9 +317,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
                                               decoration: BoxDecoration(
@@ -325,8 +327,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                         .secondaryBackground,
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 0.0, 0.0, 10.0),
                                                 child: Builder(
                                                   builder: (context) {
@@ -358,11 +361,22 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                                     .circular(
                                                                         8.0),
                                                             child:
-                                                                Image.network(
-                                                              listItem,
+                                                                CachedNetworkImage(
+                                                              imageUrl:
+                                                                  listItem,
                                                               width: 200.0,
                                                               height: 200.0,
                                                               fit: BoxFit.cover,
+                                                              cacheKey:
+                                                                  'list_${listItem}',
+                                                              placeholder: (context,
+                                                                      url) =>
+                                                                  const CircularProgressIndicator(),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  const Icon(Icons
+                                                                      .error),
                                                             ),
                                                           ),
                                                         );
@@ -383,26 +397,27 @@ class _ProductDetailCopyCopyCopyWidgetState
                                   height: 100.0,
                                   decoration: const BoxDecoration(),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 20.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.85, -0.4),
+                                          alignment: const AlignmentDirectional(
+                                              0.85, -0.4),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 50.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 50.0, 0.0, 0.0),
                                             child: FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
                                               borderRadius: 30.0,
                                               borderWidth: 1.0,
                                               buttonSize: 40.0,
-                                              fillColor: const Color(0x7F0F1113),
+                                              fillColor:
+                                                  const Color(0x7F0F1113),
                                               icon: const Icon(
                                                 Icons.chevron_left_rounded,
                                                 color: Colors.white,
@@ -419,19 +434,21 @@ class _ProductDetailCopyCopyCopyWidgetState
                                           ),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.85, -0.4),
+                                          alignment: const AlignmentDirectional(
+                                              0.85, -0.4),
                                           child: Builder(
                                             builder: (context) => Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 50.0, 0.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
                                                 borderRadius: 30.0,
                                                 borderWidth: 1.0,
                                                 buttonSize: 40.0,
-                                                fillColor: const Color(0x7F0F1113),
+                                                fillColor:
+                                                    const Color(0x7F0F1113),
                                                 icon: const Icon(
                                                   Icons.share_outlined,
                                                   color: Colors.white,
@@ -543,7 +560,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          const AlignmentDirectional(0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         mainAxisAlignment:
@@ -561,8 +579,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                       alignment:
                                           const AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 5.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                         child: Text(
                                           formatNumber(
                                             rowItemsRecord.price,
@@ -615,7 +633,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                       )
                                     ],
                                   ),
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment:
+                                      const AlignmentDirectional(-1.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -624,8 +643,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                         children: [
                                           Builder(
                                             builder: (context) => Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 0.0, 20.0, 0.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
@@ -843,8 +863,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                         child: Container(
                                           height: 36.0,
                                           decoration: BoxDecoration(
@@ -859,12 +879,11 @@ class _ProductDetailCopyCopyCopyWidgetState
                                               width: 0.5,
                                             ),
                                           ),
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               'Free Shipping',
                                               style:
@@ -889,8 +908,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                             'containerOnPageLoadAnimation1']!),
                                       ),
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            1.0, 0.0),
                                         child: Container(
                                           height: 36.0,
                                           decoration: BoxDecoration(
@@ -905,12 +924,11 @@ class _ProductDetailCopyCopyCopyWidgetState
                                               width: 0.5,
                                             ),
                                           ),
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               'Exclusive Drop',
                                               style:
@@ -935,8 +953,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                             'containerOnPageLoadAnimation2']!),
                                       ),
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            1.0, 0.0),
                                         child: Container(
                                           height: 36.0,
                                           decoration: BoxDecoration(
@@ -951,12 +969,11 @@ class _ProductDetailCopyCopyCopyWidgetState
                                               width: 0.5,
                                             ),
                                           ),
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 12.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 12.0, 0.0),
                                             child: Text(
                                               'Easy Exchange',
                                               style:
@@ -994,8 +1011,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          25.0, 0.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              25.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -1026,8 +1044,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          25.0, 0.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              25.0, 0.0, 0.0, 0.0),
                                       child: ToggleIcon(
                                         onPressed: () async {
                                           safeSetState(
@@ -1058,12 +1077,11 @@ class _ProductDetailCopyCopyCopyWidgetState
                                     ),
                                     Flexible(
                                       child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            1.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 10.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               logFirebaseEvent(
@@ -1142,11 +1160,14 @@ class _ProductDetailCopyCopyCopyWidgetState
                                             options: FFButtonOptions(
                                               width: 230.0,
                                               height: 50.0,
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
@@ -1200,24 +1221,27 @@ class _ProductDetailCopyCopyCopyWidgetState
                                   ],
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 5.0, 0.0, 0.0),
                                                 child: Text(
                                                   'DESCRIPTION',
@@ -1243,11 +1267,13 @@ class _ProductDetailCopyCopyCopyWidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  0.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         20.0, 0.0, 0.0, 0.0),
                                                 child: StreamBuilder<
                                                     List<BrandsRecord>>(
@@ -1307,8 +1333,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                       rating:
                                                           ratingBarBrandsRecord!
                                                               .rating,
-                                                      unratedColor:
-                                                          const Color(0x3457636C),
+                                                      unratedColor: const Color(
+                                                          0x3457636C),
                                                       itemCount: 5,
                                                       itemSize: 24.0,
                                                     );
@@ -1320,12 +1346,11 @@ class _ProductDetailCopyCopyCopyWidgetState
                                         ),
                                       ),
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 1.0),
+                                        alignment: const AlignmentDirectional(
+                                            -1.0, 1.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                           child: Text(
                                             'CRAFTED FROM 100% ORGANIC COTTON, THE SHIRT OFFERS A SOFT, BREATHABLE, AND LUXURIOUS FEEL. THE DOUBLE GAUZE CONSTRUCTION PROVIDES A LIGHTWEIGHT YET DURABLE FABRIC, PERFECT FOR EVERYDAY WEAR.\n\nFEATURING A CLASSY BUTTON-DOWN COLLAR AND A RELAXED FIT. IDEAL FOR LAYERING OR WEARING ON IT\'S OWN, OUR DOUBLE GAUZE COTTON SHIRT IS A MUST-HAVE FOR ANY WARDROBE.',
                                             style: FlutterFlowTheme.of(context)
@@ -1392,12 +1417,11 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                 widget.itemRef) ??
                                             true,
                                         child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: StreamBuilder<
                                                 List<BrandsRecord>>(
                                               stream: queryBrandsRecord(
@@ -1565,8 +1589,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                             initialRating: _model
                                                                     .ratingBarValue2 ??=
                                                                 0.0,
-                                                            unratedColor: const Color(
-                                                                0x3457636C),
+                                                            unratedColor:
+                                                                const Color(
+                                                                    0x3457636C),
                                                             itemCount: 5,
                                                             itemSize: 24.0,
                                                             glowColor:
@@ -1580,11 +1605,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  20.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              0.0, 20.0, 0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent(
@@ -1609,17 +1631,17 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           iconPadding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
@@ -1654,8 +1676,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                         ),
                                                       ),
                                                     ),
-                                                  ].divide(
-                                                      const SizedBox(width: 20.0)),
+                                                  ].divide(const SizedBox(
+                                                      width: 20.0)),
                                                 );
                                               },
                                             ),
@@ -1707,13 +1729,14 @@ class _ProductDetailCopyCopyCopyWidgetState
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              -1.0, 0.0),
                                           child: Container(
                                             decoration: const BoxDecoration(),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       20.0, 5.0, 20.0, 5.0),
                                               child: StreamBuilder<
                                                   List<BrandsRecord>>(
@@ -1780,17 +1803,17 @@ class _ProductDetailCopyCopyCopyWidgetState
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 20.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(20.0, 0.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.min,
@@ -1849,8 +1872,9 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                           listViewPromocodesRecordList
                                                               .length,
                                                       separatorBuilder:
-                                                          (_, __) => const SizedBox(
-                                                              height: 10.0),
+                                                          (_, __) =>
+                                                              const SizedBox(
+                                                                  height: 10.0),
                                                       itemBuilder: (context,
                                                           listViewIndex) {
                                                         final listViewPromocodesRecord =
@@ -2252,12 +2276,21 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             2.0),
-                                                    child: Image.network(
-                                                      rowItemsRecord
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: rowItemsRecord
                                                           .images.firstOrNull!,
                                                       width: 220.0,
                                                       height: 350.0,
                                                       fit: BoxFit.cover,
+                                                      cacheKey:
+                                                          'row_350_${rowItemsRecord.images.firstOrNull}',
+                                                      placeholder: (context,
+                                                              url) =>
+                                                          const CircularProgressIndicator(),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          const Icon(
+                                                              Icons.error),
                                                     ),
                                                   ),
                                                 ),
@@ -2271,11 +2304,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0),
+                                                              .fromSTEB(10.0,
+                                                              5.0, 0.0, 5.0),
                                                       child: Text(
                                                         rowItemsRecord.name,
                                                         textAlign:
@@ -2307,11 +2337,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  5.0,
-                                                                  10.0,
-                                                                  5.0),
+                                                              .fromSTEB(0.0,
+                                                              5.0, 10.0, 5.0),
                                                       child: Text(
                                                         formatNumber(
                                                           rowItemsRecord.price,
@@ -2471,12 +2498,21 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             2.0),
-                                                    child: Image.network(
-                                                      rowItemsRecord
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: rowItemsRecord
                                                           .images.firstOrNull!,
                                                       width: 110.0,
                                                       height: 170.0,
                                                       fit: BoxFit.cover,
+                                                      cacheKey:
+                                                          'row_170_${rowItemsRecord.images.firstOrNull}',
+                                                      placeholder: (context,
+                                                              url) =>
+                                                          const CircularProgressIndicator(),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          const Icon(
+                                                              Icons.error),
                                                     ),
                                                   ),
                                                 ),
@@ -2490,11 +2526,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  2.0,
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0),
+                                                              .fromSTEB(2.0,
+                                                              5.0, 0.0, 5.0),
                                                       child: Text(
                                                         rowItemsRecord.name,
                                                         textAlign:
@@ -2526,11 +2559,8 @@ class _ProductDetailCopyCopyCopyWidgetState
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  5.0,
-                                                                  2.0,
-                                                                  5.0),
+                                                              .fromSTEB(0.0,
+                                                              5.0, 2.0, 5.0),
                                                       child: Text(
                                                         formatNumber(
                                                           rowItemsRecord.price,

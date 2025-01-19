@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -69,7 +71,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -115,7 +118,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -163,7 +167,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -280,8 +285,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.network(
-                                        staggeredViewItemsRecord
+                                      child: CachedNetworkImage(
+                                        imageUrl: staggeredViewItemsRecord
                                             .images.firstOrNull!,
                                         width: () {
                                           if (MediaQuery.sizeOf(context).width <
@@ -291,9 +296,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                   .width >
                                               1000.0) {
                                             return 320.0;
-                                          } else {
-                                            return 200.0;
                                           }
+                                          return 200.0;
                                         }(),
                                         height: () {
                                           if (MediaQuery.sizeOf(context).width <
@@ -303,11 +307,21 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                   .width >
                                               1000.0) {
                                             return 460.0;
-                                          } else {
-                                            return 300.0;
                                           }
+                                          return 300.0;
                                         }(),
                                         fit: BoxFit.contain,
+                                        cacheKey:
+                                            'staggered_responsive_${staggeredViewItemsRecord.images.firstOrNull}',
+                                        placeholder: (context, url) =>
+                                            Container(
+                                          color: Colors.grey[200],
+                                          child: const Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                        ),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
                                       ),
                                     ),
                                   ),
@@ -330,8 +344,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 1.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -348,7 +362,7 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       staggeredViewItemsRecord
                                                           .brand,
@@ -386,7 +400,7 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       staggeredViewItemsRecord
                                                           .name
@@ -471,11 +485,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                         Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  1.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              1.0, 0.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -591,10 +602,12 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                             ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    -1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 0.0, 5.0, 1.0),
                                               child: Text(
                                                 formatNumber(
@@ -631,8 +644,9 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                   .discount ==
                                               0)
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       15.0, 0.0, 5.0, 0.0),
                                               child: Text(
                                                 'NEW-IN',
@@ -662,11 +676,13 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                   .discount !=
                                               0)
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 0.0, 0.0, 0.0),
                                                 child: RichText(
                                                   textScaler:
@@ -710,8 +726,8 @@ class _CatpageWidgetState extends State<CatpageWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          color:
-                                                              const Color(0xFFE06D26),
+                                                          color: const Color(
+                                                              0xFFE06D26),
                                                           fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts

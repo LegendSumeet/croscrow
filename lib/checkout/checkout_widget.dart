@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -94,7 +96,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -140,7 +143,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -221,9 +225,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                         final previewItem =
                                             preview[previewIndex];
                                         return Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 4.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                           child: StreamBuilder<ItemsRecord>(
                                             stream: ItemsRecord.getDocument(
                                                 previewItem.menuitemref!),
@@ -261,18 +264,36 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                 child: Stack(
                                                   children: [
                                                     ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.network(
-                                                        containerItemsRecord
-                                                            .images
-                                                            .firstOrNull!,
-                                                        width: double.infinity,
-                                                        height: double.infinity,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          imageUrl:
+                                                              containerItemsRecord
+                                                                  .images
+                                                                  .firstOrNull!,
+                                                          width:
+                                                              double.infinity,
+                                                          height:
+                                                              double.infinity,
+                                                          fit: BoxFit.cover,
+                                                          cacheKey:
+                                                              'item_full_${containerItemsRecord.images.firstOrNull}',
+                                                          placeholder:
+                                                              (context, url) =>
+                                                                  Container(
+                                                            color: Colors
+                                                                .grey[200],
+                                                            child: const Center(
+                                                                child:
+                                                                    CircularProgressIndicator()),
+                                                          ),
+                                                          errorWidget: (context,
+                                                                  url, error) =>
+                                                              const Icon(
+                                                                  Icons.error),
+                                                        )),
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
@@ -353,9 +374,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                           final previewItem =
                                               preview[previewIndex];
                                           return Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 4.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 0.0, 4.0, 0.0),
                                             child: StreamBuilder<ItemsRecord>(
                                               stream: ItemsRecord.getDocument(
                                                   previewItem.menuitemref!),
@@ -393,20 +413,39 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                   child: Stack(
                                                     children: [
                                                       ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        child: Image.network(
-                                                          containerItemsRecord
-                                                              .images
-                                                              .firstOrNull!,
-                                                          width:
-                                                              double.infinity,
-                                                          height:
-                                                              double.infinity,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            imageUrl:
+                                                                containerItemsRecord
+                                                                    .images
+                                                                    .firstOrNull!,
+                                                            width:
+                                                                double.infinity,
+                                                            height:
+                                                                double.infinity,
+                                                            fit: BoxFit.cover,
+                                                            cacheKey:
+                                                                'item_full_${containerItemsRecord.images.firstOrNull}',
+                                                            placeholder:
+                                                                (context,
+                                                                        url) =>
+                                                                    Container(
+                                                              color: Colors
+                                                                  .grey[200],
+                                                              child: const Center(
+                                                                  child:
+                                                                      CircularProgressIndicator()),
+                                                            ),
+                                                            errorWidget: (context,
+                                                                    url,
+                                                                    error) =>
+                                                                const Icon(Icons
+                                                                    .error),
+                                                          )),
                                                       Align(
                                                         alignment:
                                                             const AlignmentDirectional(
@@ -436,10 +475,10 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          1.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      0.0,
+                                                                      1.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               child: Text(
                                                                 previewItem.size
                                                                     .maybeHandleOverflow(
@@ -501,12 +540,11 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 1.0),
+                                        alignment: const AlignmentDirectional(
+                                            -1.0, 1.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'CONTACT DETAILS',
                                             style: FlutterFlowTheme.of(context)
@@ -516,7 +554,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelSmallFamily,
-                                                  color: const Color(0xD157636C),
+                                                  color:
+                                                      const Color(0xD157636C),
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
@@ -530,11 +569,11 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, -1.0),
+                                      alignment: const AlignmentDirectional(
+                                          -1.0, -1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(10.0, 0.0, 10.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 50.0,
@@ -543,9 +582,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                 .secondaryBackground,
                                           ),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: SizedBox(
                                               width: 200.0,
                                               child: TextFormField(
@@ -577,25 +615,26 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                             lineHeight: 3.0,
                                                           ),
                                                   hintText: 'NAME',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMediumFamily,
-                                                        color:
-                                                            const Color(0xA257636C),
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMediumFamily),
-                                                      ),
+                                                                    .labelMediumFamily,
+                                                            color: const Color(
+                                                                0xA257636C),
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMediumFamily),
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
@@ -685,16 +724,17 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                     Container(
                                       decoration: const BoxDecoration(),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(8.0, 0.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 15.0, 0.0, 0.0),
                                               child:
                                                   FlutterFlowDropDown<String>(
@@ -704,7 +744,11 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                   _model.dropDownValue1 ??=
                                                       '+91',
                                                 ),
-                                                options: const ['+91', '+1', '+971'],
+                                                options: const [
+                                                  '+91',
+                                                  '+1',
+                                                  '+971'
+                                                ],
                                                 onChanged: (val) =>
                                                     safeSetState(() => _model
                                                         .dropDownValue1 = val),
@@ -718,8 +762,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          color:
-                                                              const Color(0xAE57636C),
+                                                          color: const Color(
+                                                              0xAE57636C),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
@@ -747,8 +791,9 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                         .secondaryBackground,
                                                 borderWidth: 0.5,
                                                 borderRadius: 8.0,
-                                                margin: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                margin:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         12.0, 0.0, 12.0, 0.0),
                                                 hidesUnderline: true,
                                                 isOverButton: true,
@@ -758,11 +803,13 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        1.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 15.0, 10.0, 0.0),
                                                   child: SizedBox(
                                                     width: 300.0,
@@ -931,12 +978,11 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 1.0),
+                                        alignment: const AlignmentDirectional(
+                                            -1.0, 1.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'ADDRESS',
                                             style: FlutterFlowTheme.of(context)
@@ -946,7 +992,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelSmallFamily,
-                                                  color: const Color(0xCC57636C),
+                                                  color:
+                                                      const Color(0xCC57636C),
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
@@ -960,15 +1007,17 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 15.0, 0.0, 0.0),
                                               child: SizedBox(
                                                 width: 200.0,
@@ -991,8 +1040,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .labelSmallFamily,
-                                                          color:
-                                                              const Color(0xAA57636C),
+                                                          color: const Color(
+                                                              0xAA57636C),
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1010,8 +1059,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .labelSmallFamily,
-                                                          color:
-                                                              const Color(0xA257636C),
+                                                          color: const Color(
+                                                              0xA257636C),
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -1108,11 +1157,11 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, -1.0),
+                                      alignment: const AlignmentDirectional(
+                                          -1.0, -1.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 5.0, 10.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(10.0, 5.0, 10.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 50.0,
@@ -1121,9 +1170,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                 .secondaryBackground,
                                           ),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: SizedBox(
                                               width: 200.0,
                                               child: TextFormField(
@@ -1154,24 +1202,25 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                             lineHeight: 3.0,
                                                           ),
                                                   hintText: 'LOCALITY',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmallFamily,
-                                                        color:
-                                                            const Color(0xA257636C),
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmallFamily),
-                                                      ),
+                                                                    .labelSmallFamily,
+                                                            color: const Color(
+                                                                0xA257636C),
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmallFamily),
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1263,9 +1312,9 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                       children: [
                                         Expanded(
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 15.0, 10.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(
+                                                10.0, 15.0, 10.0, 0.0),
                                             child: SizedBox(
                                               width: 200.0,
                                               child: TextFormField(
@@ -1295,24 +1344,25 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                             lineHeight: 3.0,
                                                           ),
                                                   hintText: 'TOWN / CITY',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmallFamily,
-                                                        color:
-                                                            const Color(0xA257636C),
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmallFamily),
-                                                      ),
+                                                                    .labelSmallFamily,
+                                                            color: const Color(
+                                                                0xA257636C),
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmallFamily),
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1400,17 +1450,17 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 15.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 15.0, 0.0, 0.0),
                                             child: SizedBox(
                                               width: 250.0,
                                               child: TextFormField(
@@ -1441,24 +1491,25 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                             lineHeight: 3.0,
                                                           ),
                                                   hintText: 'PINCODE',
-                                                  hintStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelSmallFamily,
-                                                        color:
-                                                            const Color(0xA257636C),
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
+                                                  hintStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelSmall
+                                                          .override(
+                                                            fontFamily:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmallFamily),
-                                                      ),
+                                                                    .labelSmallFamily,
+                                                            color: const Color(
+                                                                0xA257636C),
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelSmallFamily),
+                                                          ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1544,11 +1595,13 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                           ),
                                           Flexible(
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 15.0, 0.0, 0.0),
                                                 child:
                                                     FlutterFlowDropDown<String>(
@@ -1632,25 +1685,26 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                                             context)
                                                                         .bodyMediumFamily),
                                                           ),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        color:
-                                                            const Color(0xA857636C),
-                                                        fontSize: 11.0,
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMediumFamily),
-                                                      ),
+                                                                    .bodyMediumFamily,
+                                                            color: const Color(
+                                                                0xA857636C),
+                                                            fontSize: 11.0,
+                                                            letterSpacing: 0.0,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumFamily),
+                                                          ),
                                                   hintText: 'STATE',
                                                   searchHintText: 'STATE',
                                                   icon: Icon(
@@ -1671,8 +1725,9 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                           .secondaryText,
                                                   borderWidth: 0.5,
                                                   borderRadius: 2.0,
-                                                  margin: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  margin:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           16.0, 4.0, 16.0, 4.0),
                                                   hidesUnderline: true,
                                                   isOverButton: true,
@@ -1697,7 +1752,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                     .secondaryBackground,
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(-1.0, 1.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 1.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
@@ -1746,14 +1802,16 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 4.0, 8.0, 4.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(8.0, 4.0, 8.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 2.0, 0.0, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.coins,
                                                 color:
@@ -1764,8 +1822,9 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                             ),
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Material(
                                                   color: Colors.transparent,
@@ -1781,7 +1840,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                                         ),
                                                       ),
                                                       unselectedWidgetColor:
-                                                          const Color(0xFF95A1AC),
+                                                          const Color(
+                                                              0xFF95A1AC),
                                                     ),
                                                     child: CheckboxListTile(
                                                       value: _model
@@ -1853,22 +1913,21 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 1.0),
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 1.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               logFirebaseEvent(
                                                   'CHECKOUT_PAGE_PAY_NOW_BTN_ON_TAP');
                                               if ((_model.textController2
-                                                              .text !=
-                                                          '') &&
+                                                          .text !=
+                                                      '') &&
                                                   (_model.adressTextController
-                                                              .text !=
-                                                          '') &&
+                                                          .text !=
+                                                      '') &&
                                                   _model
                                                       .checkboxListTileValue!) {
                                                 logFirebaseEvent(
@@ -2195,10 +2254,14 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                             options: FFButtonOptions(
                                               width: 270.0,
                                               height: 50.0,
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 0.0, 0.0),
+                                              iconPadding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,

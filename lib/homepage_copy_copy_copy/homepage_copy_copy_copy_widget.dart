@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/base_auth_user_provider.dart';
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
@@ -101,8 +103,8 @@ class _HomepageCopyCopyCopyWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        20.0, 20.0, 0.0, 0.0),
                     child: Text(
                       'PROFILE',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -316,7 +318,8 @@ class _HomepageCopyCopyCopyWidgetState
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             automaticallyImplyLeading: false,
             leading: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
               child: Container(
                 width: 162.0,
                 height: 39.0,
@@ -325,7 +328,8 @@ class _HomepageCopyCopyCopyWidgetState
                 ),
                 child: Builder(
                   builder: (context) => Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 5.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -398,7 +402,8 @@ class _HomepageCopyCopyCopyWidgetState
             ),
             actions: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                 child: Container(
                   width: 46.0,
                   height: 59.0,
@@ -408,8 +413,8 @@ class _HomepageCopyCopyCopyWidgetState
                   child: Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 8.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 5.0, 0.0, 8.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -472,12 +477,13 @@ class _HomepageCopyCopyCopyWidgetState
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment:
+                                      const AlignmentDirectional(0.0, 0.0),
                                   child: CarouselSlider(
                                     items: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -550,8 +556,8 @@ class _HomepageCopyCopyCopyWidgetState
                                       autoPlay: true,
                                       autoPlayAnimationDuration:
                                           const Duration(milliseconds: 800),
-                                      autoPlayInterval:
-                                          const Duration(milliseconds: (800 + 4000)),
+                                      autoPlayInterval: const Duration(
+                                          milliseconds: (800 + 4000)),
                                       autoPlayCurve: Curves.linear,
                                       pauseAutoPlayInFiniteScroll: true,
                                       onPageChanged: (index, _) =>
@@ -586,8 +592,9 @@ class _HomepageCopyCopyCopyWidgetState
                                                         .secondaryBackground,
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
                                                 child: SizedBox(
                                                   width: 1600.0,
                                                   height: 620.0,
@@ -676,8 +683,9 @@ class _HomepageCopyCopyCopyWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 10.0, 5.0, 10.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              5.0, 10.0, 5.0, 10.0),
                                       child: SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
                                         child: Row(
@@ -1235,15 +1243,15 @@ class _HomepageCopyCopyCopyWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 10.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'BEST SELLING',
                                               style:
@@ -1266,8 +1274,9 @@ class _HomepageCopyCopyCopyWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 10.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              5.0, 10.0, 0.0, 0.0),
                                       child: StreamBuilder<List<ItemsRecord>>(
                                         stream: queryItemsRecord(
                                           queryBuilder: (itemsRecord) =>
@@ -1421,10 +1430,11 @@ class _HomepageCopyCopyCopyWidgetState
                                                                     .circular(
                                                                         4.0),
                                                             child:
-                                                                Image.network(
-                                                              rowItemsRecord
-                                                                  .images
-                                                                  .firstOrNull!,
+                                                                CachedNetworkImage(
+                                                              imageUrl:
+                                                                  rowItemsRecord
+                                                                      .images
+                                                                      .firstOrNull!,
                                                               width: () {
                                                                 if (MediaQuery.sizeOf(
                                                                             context)
@@ -1441,9 +1451,8 @@ class _HomepageCopyCopyCopyWidgetState
                                                                         .width <
                                                                     kBreakpointLarge) {
                                                                   return 199.0;
-                                                                } else {
-                                                                  return 199.0;
                                                                 }
+                                                                return 199.0;
                                                               }(),
                                                               height: () {
                                                                 if (MediaQuery.sizeOf(
@@ -1461,12 +1470,28 @@ class _HomepageCopyCopyCopyWidgetState
                                                                         .width <
                                                                     kBreakpointLarge) {
                                                                   return 199.0;
-                                                                } else {
-                                                                  return 199.0;
                                                                 }
+                                                                return 199.0;
                                                               }(),
                                                               fit: BoxFit
                                                                   .contain,
+                                                              cacheKey:
+                                                                  'row_item_${rowItemsRecord.images.firstOrNull}',
+                                                              placeholder:
+                                                                  (context,
+                                                                          url) =>
+                                                                      Container(
+                                                                color: Colors
+                                                                    .grey[200],
+                                                                child: const Center(
+                                                                    child:
+                                                                        CircularProgressIndicator()),
+                                                              ),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  const Icon(Icons
+                                                                      .error),
                                                             ),
                                                           ),
                                                         ),
@@ -1474,11 +1499,8 @@ class _HomepageCopyCopyCopyWidgetState
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    5.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                5.0, 0.0, 0.0),
                                                         child: Text(
                                                           rowItemsRecord.name,
                                                           textAlign:
@@ -1508,22 +1530,23 @@ class _HomepageCopyCopyCopyWidgetState
                                                     ],
                                                   ),
                                                 );
-                                              }).divide(const SizedBox(width: 5.0)),
+                                              }).divide(
+                                                  const SizedBox(width: 5.0)),
                                             ),
                                           );
                                         },
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 10.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'SHOP BY CATEGORIES',
                                               style:
@@ -1546,8 +1569,9 @@ class _HomepageCopyCopyCopyWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 16.0, 4.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              10.0, 10.0, 16.0, 4.0),
                                       child:
                                           StreamBuilder<List<ItemstyleRecord>>(
                                         stream: queryItemstyleRecord(
@@ -1597,14 +1621,13 @@ class _HomepageCopyCopyCopyWidgetState
                                                     Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              0.0, 5.0, 0.0),
                                                       child: AnimatedContainer(
-                                                        duration: const Duration(
-                                                            milliseconds: 20),
+                                                        duration:
+                                                            const Duration(
+                                                                milliseconds:
+                                                                    20),
                                                         curve: Curves.easeIn,
                                                         width: 291.0,
                                                         height: 380.0,
@@ -1659,11 +1682,30 @@ class _HomepageCopyCopyCopyWidgetState
                                                                       .circular(
                                                                           10.0),
                                                               child:
-                                                                  Image.network(
-                                                                rowItemstyleRecord
-                                                                    .image,
+                                                                  CachedNetworkImage(
+                                                                imageUrl:
+                                                                    rowItemstyleRecord
+                                                                        .image,
                                                                 fit: BoxFit
                                                                     .contain,
+                                                                cacheKey:
+                                                                    'style_${rowItemstyleRecord.image}',
+                                                                placeholder:
+                                                                    (context,
+                                                                            url) =>
+                                                                        Container(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      200],
+                                                                  child: const Center(
+                                                                      child:
+                                                                          CircularProgressIndicator()),
+                                                                ),
+                                                                errorWidget: (context,
+                                                                        url,
+                                                                        error) =>
+                                                                    const Icon(Icons
+                                                                        .error),
                                                               ),
                                                             ),
                                                           ),
@@ -1672,24 +1714,28 @@ class _HomepageCopyCopyCopyWidgetState
                                                     ),
                                                   ],
                                                 );
-                                              }).divide(const SizedBox(width: 5.0)),
+                                              }).divide(
+                                                  const SizedBox(width: 5.0)),
                                             ),
                                           );
                                         },
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 10.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 10.0, 0.0, 10.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    -1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 'FEATURED COLLECTION',
@@ -1712,11 +1758,13 @@ class _HomepageCopyCopyCopyWidgetState
                                           ),
                                           Flexible(
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
                                                 child: InkWell(
                                                   splashColor:
@@ -1823,8 +1871,9 @@ class _HomepageCopyCopyCopyWidgetState
                                                   staggeredViewItemsRecordList[
                                                       staggeredViewIndex];
                                               return Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: Container(
                                                   width: () {
@@ -1927,10 +1976,11 @@ class _HomepageCopyCopyCopyWidgetState
                                                                     .circular(
                                                                         0.0),
                                                             child:
-                                                                Image.network(
-                                                              staggeredViewItemsRecord
-                                                                  .images
-                                                                  .firstOrNull!,
+                                                                CachedNetworkImage(
+                                                              imageUrl:
+                                                                  staggeredViewItemsRecord
+                                                                      .images
+                                                                      .firstOrNull!,
                                                               width: () {
                                                                 if (MediaQuery.sizeOf(
                                                                             context)
@@ -1942,9 +1992,8 @@ class _HomepageCopyCopyCopyWidgetState
                                                                         .width >
                                                                     1000.0) {
                                                                   return 300.0;
-                                                                } else {
-                                                                  return 180.0;
                                                                 }
+                                                                return 180.0;
                                                               }(),
                                                               height: () {
                                                                 if (MediaQuery.sizeOf(
@@ -1957,12 +2006,28 @@ class _HomepageCopyCopyCopyWidgetState
                                                                         .width >
                                                                     1000.0) {
                                                                   return 450.0;
-                                                                } else {
-                                                                  return 270.0;
                                                                 }
+                                                                return 270.0;
                                                               }(),
                                                               fit: BoxFit
                                                                   .contain,
+                                                              cacheKey:
+                                                                  'staggered_${staggeredViewItemsRecord.images.firstOrNull}',
+                                                              placeholder:
+                                                                  (context,
+                                                                          url) =>
+                                                                      Container(
+                                                                color: Colors
+                                                                    .grey[200],
+                                                                child: const Center(
+                                                                    child:
+                                                                        CircularProgressIndicator()),
+                                                              ),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  const Icon(Icons
+                                                                      .error),
                                                             ),
                                                           ),
                                                         ),
@@ -1997,10 +2062,10 @@ class _HomepageCopyCopyCopyWidgetState
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        1.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                    0.0,
+                                                                    1.0,
+                                                                    0.0,
+                                                                    0.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -2020,7 +2085,8 @@ class _HomepageCopyCopyCopyWidgetState
                                                                           -1.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             10.0,
                                                                             0.0,
                                                                             0.0,
@@ -2048,7 +2114,8 @@ class _HomepageCopyCopyCopyWidgetState
                                                                           -1.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             10.0,
                                                                             0.0,
                                                                             0.0,
@@ -2208,10 +2275,10 @@ class _HomepageCopyCopyCopyWidgetState
                                                             padding:
                                                                 const EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        0.0,
-                                                                        3.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                                    0.0,
+                                                                    3.0,
+                                                                    0.0,
+                                                                    0.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -2261,10 +2328,10 @@ class _HomepageCopyCopyCopyWidgetState
                                                                       Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            1.0),
+                                                                        10.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        1.0),
                                                                     child: Text(
                                                                       formatNumber(
                                                                         staggeredViewItemsRecord
@@ -2300,10 +2367,10 @@ class _HomepageCopyCopyCopyWidgetState
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
+                                                                        15.0,
+                                                                        0.0,
+                                                                        5.0,
+                                                                        0.0),
                                                                     child: Text(
                                                                       'NEW-IN',
                                                                       style: FlutterFlowTheme.of(
@@ -2333,7 +2400,8 @@ class _HomepageCopyCopyCopyWidgetState
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           15.0,
                                                                           0.0,
                                                                           0.0,
@@ -2388,8 +2456,9 @@ class _HomepageCopyCopyCopyWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 5.0, 15.0, 5.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              15.0, 5.0, 15.0, 5.0),
                                       child: Container(
                                         width: double.infinity,
                                         decoration: BoxDecoration(
@@ -2411,11 +2480,11 @@ class _HomepageCopyCopyCopyWidgetState
                                           options: FFButtonOptions(
                                             width: double.infinity,
                                             height: 40.0,
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(16.0, 0.0, 16.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional
+                                                    .fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,

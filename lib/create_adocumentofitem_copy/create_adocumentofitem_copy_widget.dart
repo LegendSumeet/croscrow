@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -138,7 +140,8 @@ class _CreateAdocumentofitemCopyWidgetState
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -185,7 +188,8 @@ class _CreateAdocumentofitemCopyWidgetState
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -874,14 +878,22 @@ class _CreateAdocumentofitemCopyWidgetState
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 0.0),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  child: Image.network(
-                                    _model.textController7.text,
-                                    width: 100.0,
-                                    height: 100.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    child: CachedNetworkImage(
+                                      imageUrl: _model.textController7.text,
+                                      width: 100.0,
+                                      height: 100.0,
+                                      fit: BoxFit.cover,
+                                      cacheKey:
+                                          'text_controller_${_model.textController7.text}',
+                                      placeholder: (context, url) => Container(
+                                        color: Colors.grey[200],
+                                        child: const Center(
+                                            child: CircularProgressIndicator()),
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
+                                    )),
                               ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -907,9 +919,8 @@ class _CreateAdocumentofitemCopyWidgetState
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(16.0, 0.0, 0.0, 0.0),
                                           child: SizedBox(
                                             width: 200.0,
                                             child: TextFormField(
@@ -1039,8 +1050,8 @@ class _CreateAdocumentofitemCopyWidgetState
                         ),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 16.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           constraints: const BoxConstraints(
@@ -1130,14 +1141,24 @@ class _CreateAdocumentofitemCopyWidgetState
                                     }
                                   },
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      _model.uploadedFileUrl,
-                                      width: 100.0,
-                                      height: 150.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: CachedNetworkImage(
+                                        imageUrl: _model.uploadedFileUrl,
+                                        width: 100.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                        cacheKey:
+                                            'uploaded_${_model.uploadedFileUrl}',
+                                        placeholder: (context, url) =>
+                                            Container(
+                                          color: Colors.grey[200],
+                                          child: const Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                        ),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
+                                      )),
                                 ),
                               ],
                             ),
@@ -1193,8 +1214,9 @@ class _CreateAdocumentofitemCopyWidgetState
                                   width: double.infinity,
                                   height: 54.0,
                                   padding: const EdgeInsets.all(0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding:
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   textStyle: FlutterFlowTheme.of(context)

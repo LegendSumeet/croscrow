@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -67,7 +69,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -113,7 +116,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -163,14 +167,19 @@ class _ViewallWidgetState extends State<ViewallWidget> {
               Container(
                 decoration: const BoxDecoration(),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 10.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      5.0, 15.0, 5.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       FlutterFlowDropDown<String>(
                         controller: _model.dropDownValueController ??=
                             FormFieldController<String>(null),
-                        options: const ['LOW TO HIGH', 'HIGH TO LOW', 'RELEVANCE'],
+                        options: const [
+                          'LOW TO HIGH',
+                          'HIGH TO LOW',
+                          'RELEVANCE'
+                        ],
                         onChanged: (val) =>
                             safeSetState(() => _model.dropDownValue = val),
                         width: 87.0,
@@ -395,8 +404,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(0.0),
-                                        child: Image.network(
-                                          staggeredViewItemsRecord
+                                        child: CachedNetworkImage(
+                                          imageUrl: staggeredViewItemsRecord
                                               .images.firstOrNull!,
                                           width: () {
                                             if (MediaQuery.sizeOf(context)
@@ -427,6 +436,12 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                             }
                                           }(),
                                           fit: BoxFit.contain,
+                                          cacheKey:
+                                              'staggered_2_${staggeredViewItemsRecord.images.firstOrNull}',
+                                          placeholder: (context, url) =>
+                                              const CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ),
@@ -449,9 +464,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 1.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -467,11 +481,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         staggeredViewItemsRecord
                                                             .brand,
@@ -509,11 +520,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         staggeredViewItemsRecord
                                                             .name
@@ -595,11 +603,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                           Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    1.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                1.0, 0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -717,11 +722,13 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                         ),
                                               ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      -1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         10.0, 0.0, 5.0, 1.0),
                                                 child: Text(
                                                   formatNumber(
@@ -760,8 +767,9 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     .discount ==
                                                 0)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 0.0, 5.0, 0.0),
                                                 child: Text(
                                                   'NEW-IN',
@@ -792,11 +800,13 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     .discount !=
                                                 0)
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        1.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           15.0, 0.0, 0.0, 0.0),
                                                   child: RichText(
                                                     textScaler:
@@ -993,8 +1003,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(0.0),
-                                        child: Image.network(
-                                          staggeredViewItemsRecord
+                                        child: CachedNetworkImage(
+                                          imageUrl: staggeredViewItemsRecord
                                               .images.firstOrNull!,
                                           width: () {
                                             if (MediaQuery.sizeOf(context)
@@ -1025,6 +1035,12 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                             }
                                           }(),
                                           fit: BoxFit.contain,
+                                          cacheKey:
+                                              'staggered_3_${staggeredViewItemsRecord.images.firstOrNull}',
+                                          placeholder: (context, url) =>
+                                              const CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ),
@@ -1047,9 +1063,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 1.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1065,11 +1080,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         staggeredViewItemsRecord
                                                             .brand,
@@ -1107,11 +1119,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         staggeredViewItemsRecord
                                                             .name
@@ -1193,11 +1202,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                           Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    1.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                1.0, 0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1315,11 +1321,13 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                         ),
                                               ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      -1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         10.0, 0.0, 5.0, 1.0),
                                                 child: Text(
                                                   formatNumber(
@@ -1358,8 +1366,9 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     .discount ==
                                                 0)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 0.0, 5.0, 0.0),
                                                 child: Text(
                                                   'NEW-IN',
@@ -1390,11 +1399,13 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     .discount !=
                                                 0)
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        1.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           15.0, 0.0, 0.0, 0.0),
                                                   child: RichText(
                                                     textScaler:
@@ -1591,8 +1602,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(0.0),
-                                        child: Image.network(
-                                          staggeredViewItemsRecord
+                                        child: CachedNetworkImage(
+                                          imageUrl: staggeredViewItemsRecord
                                               .images.firstOrNull!,
                                           width: () {
                                             if (MediaQuery.sizeOf(context)
@@ -1623,6 +1634,12 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                             }
                                           }(),
                                           fit: BoxFit.contain,
+                                          cacheKey:
+                                              'staggered_4_${staggeredViewItemsRecord.images.firstOrNull}',
+                                          placeholder: (context, url) =>
+                                              const CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ),
@@ -1645,9 +1662,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 1.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1663,11 +1679,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         staggeredViewItemsRecord
                                                             .brand,
@@ -1705,11 +1718,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         staggeredViewItemsRecord
                                                             .name
@@ -1791,11 +1801,8 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                           Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    1.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                1.0, 0.0, 0.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1913,11 +1920,13 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                         ),
                                               ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      -1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         10.0, 0.0, 5.0, 1.0),
                                                 child: Text(
                                                   formatNumber(
@@ -1956,8 +1965,9 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     .discount ==
                                                 0)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 0.0, 5.0, 0.0),
                                                 child: Text(
                                                   'NEW-IN',
@@ -1988,11 +1998,13 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                                                     .discount !=
                                                 0)
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        1.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           15.0, 0.0, 0.0, 0.0),
                                                   child: RichText(
                                                     textScaler:

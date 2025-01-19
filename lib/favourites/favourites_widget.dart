@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -59,7 +61,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(
+                    10.0, 20.0, 10.0, 10.0),
                 child: Container(
                   width: 300.0,
                   height: 30.0,
@@ -153,13 +156,14 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          10.0, 0.0, 0.0, 0.0),
                       child: Text(
                         'YOUR FAVOURITES',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -288,8 +292,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(0.0),
-                                          child: Image.network(
-                                            containerItemsRecord
+                                          child: CachedNetworkImage(
+                                            imageUrl: containerItemsRecord
                                                 .images.firstOrNull!,
                                             width: () {
                                               if (MediaQuery.sizeOf(context)
@@ -301,9 +305,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                       .width >
                                                   1000.0) {
                                                 return 300.0;
-                                              } else {
-                                                return 180.0;
                                               }
+                                              return 180.0;
                                             }(),
                                             height: () {
                                               if (MediaQuery.sizeOf(context)
@@ -315,11 +318,22 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                       .width >
                                                   1000.0) {
                                                 return 450.0;
-                                              } else {
-                                                return 270.0;
                                               }
+                                              return 270.0;
                                             }(),
                                             fit: BoxFit.contain,
+                                            cacheKey:
+                                                'container_item_${containerItemsRecord.images.firstOrNull}',
+                                            placeholder: (context, url) =>
+                                                Container(
+                                              color: Colors.grey[200],
+                                              child: const Center(
+                                                  child:
+                                                      CircularProgressIndicator()),
+                                            ),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
                                           ),
                                         ),
                                       ),
@@ -345,9 +359,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                       child: Container(
                                         decoration: const BoxDecoration(),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 1.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -363,11 +376,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         containerItemsRecord
                                                             .brand,
@@ -405,11 +415,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              0.0, 0.0, 0.0),
                                                       child: Text(
                                                         containerItemsRecord
                                                             .name
@@ -585,9 +592,8 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                       child: Container(
                                         decoration: const BoxDecoration(),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 3.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 3.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -627,11 +633,13 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                       ),
                                                 ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        -1.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           10.0, 0.0, 5.0, 1.0),
                                                   child: Text(
                                                     formatNumber(
@@ -669,8 +677,9 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                       .discount ==
                                                   0)
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           15.0, 0.0, 5.0, 0.0),
                                                   child: Text(
                                                     'NEW-IN',
@@ -707,7 +716,7 @@ class _FavouritesWidgetState extends State<FavouritesWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
-                                                                0.0, 0.0),
+                                                            0.0, 0.0),
                                                     child: RichText(
                                                       textScaler:
                                                           MediaQuery.of(context)

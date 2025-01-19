@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/login_widget.dart';
@@ -179,7 +181,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                               Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment:
+                                        const AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 400.0,
                                       height: 600.0,
@@ -215,9 +218,23 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8.0),
-                                                    child: Image.network(
-                                                      imagesItem,
+                                                    child: CachedNetworkImage(
+                                                      imageUrl: imagesItem,
                                                       fit: BoxFit.contain,
+                                                      cacheKey:
+                                                          'image_item_${imagesItem}',
+                                                      placeholder:
+                                                          (context, url) =>
+                                                              Container(
+                                                        color: Colors.grey[200],
+                                                        child: const Center(
+                                                            child:
+                                                                CircularProgressIndicator()),
+                                                      ),
+                                                      errorWidget: (context,
+                                                              url, error) =>
+                                                          const Icon(
+                                                              Icons.error),
                                                     ),
                                                   ),
                                                 );
@@ -237,9 +254,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                     Axis.horizontal,
                                                 autoPlay: true,
                                                 autoPlayAnimationDuration:
-                                                    const Duration(milliseconds: 800),
-                                                autoPlayInterval: const Duration(
-                                                    milliseconds: (800 + 4000)),
+                                                    const Duration(
+                                                        milliseconds: 800),
+                                                autoPlayInterval:
+                                                    const Duration(
+                                                        milliseconds:
+                                                            (800 + 4000)),
                                                 autoPlayCurve: Curves.linear,
                                                 pauseAutoPlayInFiniteScroll:
                                                     true,
@@ -254,26 +274,27 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 20.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.85, -0.4),
+                                          alignment: const AlignmentDirectional(
+                                              0.85, -0.4),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 50.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 50.0, 0.0, 0.0),
                                             child: FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
                                               borderRadius: 30.0,
                                               borderWidth: 1.0,
                                               buttonSize: 40.0,
-                                              fillColor: const Color(0x480F1113),
+                                              fillColor:
+                                                  const Color(0x480F1113),
                                               icon: const Icon(
                                                 Icons.chevron_left_rounded,
                                                 color: Colors.white,
@@ -290,18 +311,18 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                           ),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.85, -0.4),
+                                          alignment: const AlignmentDirectional(
+                                              0.85, -0.4),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 50.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 50.0, 0.0, 0.0),
                                             child: FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
                                               borderRadius: 30.0,
                                               borderWidth: 1.0,
                                               buttonSize: 40.0,
-                                              fillColor: const Color(0x480F1113),
+                                              fillColor:
+                                                  const Color(0x480F1113),
                                               icon: const Icon(
                                                 Icons.ios_share,
                                                 color: Colors.white,
@@ -324,7 +345,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 ],
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 10.0, 0.0, 0.0),
@@ -347,7 +369,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 8.0, 24.0, 0.0),
@@ -395,8 +418,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -411,12 +434,11 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                         ),
                                       ),
                                       Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                        alignment: const AlignmentDirectional(
+                                            -1.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 5.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                           child: Text(
                                             formatNumber(
                                               productDetailItemsRecord.price,
@@ -448,7 +470,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 15.0, 15.0, 10.0),
@@ -469,7 +492,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                         )
                                       ],
                                     ),
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment:
+                                        const AlignmentDirectional(-1.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -478,8 +502,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                           children: [
                                             Builder(
                                               builder: (context) => Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 0.0, 20.0, 0.0),
                                                 child: InkWell(
                                                   splashColor:
@@ -693,7 +718,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       24.0, 10.0, 24.0, 0.0),
@@ -721,9 +747,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             height: 36.0,
                                             decoration: BoxDecoration(
@@ -740,10 +765,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                               ),
                                             ),
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Text(
                                                 'Free Shipping',
@@ -769,8 +796,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                               'containerOnPageLoadAnimation1']!),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(1.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              1.0, 0.0),
                                           child: Container(
                                             height: 36.0,
                                             decoration: BoxDecoration(
@@ -787,10 +814,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                               ),
                                             ),
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Text(
                                                 'Exclusive Drop',
@@ -816,8 +845,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                               'containerOnPageLoadAnimation2']!),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(1.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              1.0, 0.0),
                                           child: Container(
                                             height: 36.0,
                                             decoration: BoxDecoration(
@@ -834,10 +863,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                               ),
                                             ),
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       12.0, 0.0, 12.0, 0.0),
                                               child: Text(
                                                 'Easy Exchange',
@@ -888,25 +919,27 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                     ],
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment:
+                                        const AlignmentDirectional(0.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 2.0, 0.0, 0.0),
                                                   child: Text(
                                                     'DESCRIPTION',
@@ -934,11 +967,13 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           20.0, 0.0, 0.0, 0.0),
                                                   child: StreamBuilder<
                                                       List<BrandsRecord>>(
@@ -1001,7 +1036,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                             ratingBarBrandsRecord!
                                                                 .rating,
                                                         unratedColor:
-                                                            const Color(0x3457636C),
+                                                            const Color(
+                                                                0x3457636C),
                                                         itemCount: 5,
                                                         itemSize: 24.0,
                                                       );
@@ -1064,15 +1100,13 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                   },
                                                   child: Container(
                                                     height: 20.0,
-                                                    decoration: const BoxDecoration(),
+                                                    decoration:
+                                                        const BoxDecoration(),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  2.0,
-                                                                  10.0,
-                                                                  0.0),
+                                                              .fromSTEB(10.0,
+                                                              2.0, 10.0, 0.0),
                                                       child: Icon(
                                                         Icons
                                                             .info_outline_rounded,
@@ -1090,12 +1124,11 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                           ),
                                         ),
                                         Align(
-                                          alignment:
-                                              const AlignmentDirectional(-1.0, 1.0),
+                                          alignment: const AlignmentDirectional(
+                                              -1.0, 1.0),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: Text(
                                               'The luxury button down in navy blue exemplifies purpose appreciation for artisanal craftsmanship. MODEL INFORMATION\n• 5’11”, wearing size Large',
                                               style:
@@ -1155,8 +1188,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                             .secondaryBackground,
                                         shape: BoxShape.rectangle,
                                       ),
-                                      alignment:
-                                          const AlignmentDirectional(-1.0, -1.0),
+                                      alignment: const AlignmentDirectional(
+                                          -1.0, -1.0),
                                       child: Visibility(
                                         visible: functions.ratin(
                                                 containerOrders2RecordList
@@ -1164,12 +1197,11 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                 widget.itemRef) ??
                                             true,
                                         child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(0.0, 10.0, 0.0, 0.0),
                                             child: StreamBuilder<
                                                 List<BrandsRecord>>(
                                               stream: queryBrandsRecord(
@@ -1313,8 +1345,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                             initialRating: _model
                                                                     .ratingBarValue2 ??=
                                                                 0.0,
-                                                            unratedColor: const Color(
-                                                                0x3457636C),
+                                                            unratedColor:
+                                                                const Color(
+                                                                    0x3457636C),
                                                             itemCount: 5,
                                                             itemSize: 24.0,
                                                             glowColor:
@@ -1347,18 +1380,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       options: FFButtonOptions(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                0.0, 0.0, 0.0),
                                                         iconPadding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                0.0, 0.0, 0.0),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -1392,8 +1419,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                                 .circular(4.0),
                                                       ),
                                                     ),
-                                                  ].divide(
-                                                      const SizedBox(width: 20.0)),
+                                                  ].divide(const SizedBox(
+                                                      width: 20.0)),
                                                 );
                                               },
                                             ),
@@ -1445,12 +1472,14 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    -1.0, 0.0),
                                             child: Container(
                                               decoration: const BoxDecoration(),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         20.0, 5.0, 20.0, 5.0),
                                                 child: StreamBuilder<
                                                     List<BrandsRecord>>(
@@ -1519,9 +1548,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 0.0, 20.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(20.0, 0.0, 20.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1593,8 +1621,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                         itemCount:
                                                             listViewPromocodesRecordList
                                                                 .length,
-                                                        separatorBuilder:
-                                                            (_, __) => const SizedBox(
+                                                        separatorBuilder: (_,
+                                                                __) =>
+                                                            const SizedBox(
                                                                 height: 10.0),
                                                         itemBuilder: (context,
                                                             listViewIndex) {
@@ -1845,7 +1874,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 },
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment:
+                                    const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 10.0, 0.0, 0.0),
@@ -2008,12 +2038,28 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               2.0),
-                                                      child: Image.network(
-                                                        rowItemsRecord.images
+                                                      child: CachedNetworkImage(
+                                                        imageUrl: rowItemsRecord
+                                                            .images
                                                             .firstOrNull!,
                                                         width: 220.0,
                                                         height: 350.0,
                                                         fit: BoxFit.cover,
+                                                        cacheKey:
+                                                            'row_item_large_${rowItemsRecord.images.firstOrNull}',
+                                                        placeholder:
+                                                            (context, url) =>
+                                                                Container(
+                                                          color:
+                                                              Colors.grey[200],
+                                                          child: const Center(
+                                                              child:
+                                                                  CircularProgressIndicator()),
+                                                        ),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            const Icon(
+                                                                Icons.error),
                                                       ),
                                                     ),
                                                   ),
@@ -2027,11 +2073,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    5.0,
-                                                                    0.0,
-                                                                    5.0),
+                                                                .fromSTEB(10.0,
+                                                                5.0, 0.0, 5.0),
                                                         child: Text(
                                                           rowItemsRecord.name,
                                                           textAlign:
@@ -2061,11 +2104,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    5.0,
-                                                                    10.0,
-                                                                    5.0),
+                                                                .fromSTEB(0.0,
+                                                                5.0, 10.0, 5.0),
                                                         child: Text(
                                                           formatNumber(
                                                             rowItemsRecord
@@ -2106,7 +2146,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                 ],
                                               ),
                                             );
-                                          }).divide(const SizedBox(width: 15.0)),
+                                          }).divide(
+                                              const SizedBox(width: 15.0)),
                                         ),
                                       );
                                     },
@@ -2226,12 +2267,28 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               2.0),
-                                                      child: Image.network(
-                                                        rowItemsRecord.images
+                                                      child: CachedNetworkImage(
+                                                        imageUrl: rowItemsRecord
+                                                            .images
                                                             .firstOrNull!,
                                                         width: 110.0,
                                                         height: 167.0,
                                                         fit: BoxFit.cover,
+                                                        cacheKey:
+                                                            'row_item_small_${rowItemsRecord.images.firstOrNull}',
+                                                        placeholder:
+                                                            (context, url) =>
+                                                                Container(
+                                                          color:
+                                                              Colors.grey[200],
+                                                          child: const Center(
+                                                              child:
+                                                                  CircularProgressIndicator()),
+                                                        ),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            const Icon(
+                                                                Icons.error),
                                                       ),
                                                     ),
                                                   ),
@@ -2245,11 +2302,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    2.0,
-                                                                    5.0,
-                                                                    0.0,
-                                                                    5.0),
+                                                                .fromSTEB(2.0,
+                                                                5.0, 0.0, 5.0),
                                                         child: Text(
                                                           rowItemsRecord.name,
                                                           textAlign:
@@ -2279,11 +2333,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    5.0,
-                                                                    2.0,
-                                                                    5.0),
+                                                                .fromSTEB(0.0,
+                                                                5.0, 2.0, 5.0),
                                                         child: Text(
                                                           formatNumber(
                                                             rowItemsRecord
@@ -2324,7 +2375,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                 ],
                                               ),
                                             );
-                                          }).divide(const SizedBox(width: 15.0)),
+                                          }).divide(
+                                              const SizedBox(width: 15.0)),
                                         ),
                                       );
                                     },
@@ -2457,8 +2509,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       .primaryText,
                                             ),
                                           ),
-                                          duration:
-                                              const Duration(milliseconds: 1000),
+                                          duration: const Duration(
+                                              milliseconds: 1000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .alternate,
@@ -2489,8 +2541,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                       .secondaryBackground,
                                             ),
                                           ),
-                                          duration:
-                                              const Duration(milliseconds: 1500),
+                                          duration: const Duration(
+                                              milliseconds: 1500),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .primaryText,
@@ -2504,15 +2556,16 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                     } else {
                                       return 'Go to cart';
                                     }
-                                  
                                   }(),
                                   options: FFButtonOptions(
                                     width: 230.0,
                                     height: 50.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                    iconPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     textStyle: FlutterFlowTheme.of(context)

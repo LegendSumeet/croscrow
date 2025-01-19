@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -69,7 +71,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -115,7 +118,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -163,7 +167,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -280,8 +285,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                     },
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.network(
-                                        staggeredViewItemsRecord
+                                      child: CachedNetworkImage(
+                                        imageUrl: staggeredViewItemsRecord
                                             .images.firstOrNull!,
                                         width: () {
                                           if (MediaQuery.sizeOf(context).width <
@@ -308,6 +313,12 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                           }
                                         }(),
                                         fit: BoxFit.contain,
+                                        cacheKey:
+                                            'staggered_1_${staggeredViewItemsRecord.images.firstOrNull}',
+                                        placeholder: (context, url) =>
+                                            const CircularProgressIndicator(),
+                                        errorWidget: (context, url, error) =>
+                                            const Icon(Icons.error),
                                       ),
                                     ),
                                   ),
@@ -330,8 +341,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 1.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 1.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -348,7 +359,7 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       staggeredViewItemsRecord
                                                           .brand,
@@ -386,7 +397,7 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       staggeredViewItemsRecord
                                                           .name
@@ -471,11 +482,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                                         Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  1.0,
-                                                                  0.0,
-                                                                  0.0),
+                                                              .fromSTEB(0.0,
+                                                              1.0, 0.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -591,10 +599,12 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                             ),
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    -1.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 0.0, 5.0, 1.0),
                                               child: Text(
                                                 formatNumber(
@@ -631,8 +641,9 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                                   .discount ==
                                               0)
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       15.0, 0.0, 5.0, 0.0),
                                               child: Text(
                                                 'NEW-IN',
@@ -662,11 +673,13 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                                   .discount !=
                                               0)
                                             Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, 0.0),
+                                              alignment:
+                                                  const AlignmentDirectional(
+                                                      1.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         15.0, 0.0, 0.0, 0.0),
                                                 child: RichText(
                                                   textScaler:
@@ -710,8 +723,8 @@ class _StylepageWidgetState extends State<StylepageWidget> {
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .bodyMediumFamily,
-                                                          color:
-                                                              const Color(0xFFE06D26),
+                                                          color: const Color(
+                                                              0xFFE06D26),
                                                           fontSize: 10.0,
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts

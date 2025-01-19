@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -172,7 +174,8 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
           child: Container(
             decoration: const BoxDecoration(),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -189,8 +192,8 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                           ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 8.0, 0.0, 0.0),
                       child: Text(
                         'Submit a Ticket',
                         style: FlutterFlowTheme.of(context)
@@ -255,11 +258,18 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                                       ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          rowItemsRecord.images.firstOrNull!,
+                                        child: CachedNetworkImage(
+                                          imageUrl: rowItemsRecord
+                                              .images.firstOrNull!,
                                           width: 100.0,
                                           height: 150.0,
                                           fit: BoxFit.cover,
+                                          cacheKey:
+                                              'row_150_${rowItemsRecord.images.firstOrNull}',
+                                          placeholder: (context, url) =>
+                                              const CircularProgressIndicator(),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ],
@@ -288,8 +298,9 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 16.0, 8.0, 16.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 16.0, 8.0, 16.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -335,9 +346,8 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                                           borderColor: Colors.transparent,
                                           borderWidth: 0.0,
                                           borderRadius: 8.0,
-                                          margin:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
+                                          margin: const EdgeInsetsDirectional
+                                              .fromSTEB(12.0, 0.0, 12.0, 0.0),
                                           hidesUnderline: true,
                                           isOverButton: false,
                                           isSearchable: false,
@@ -355,8 +365,8 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                       },
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 16.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -559,8 +569,8 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 16.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         constraints: const BoxConstraints(
@@ -579,8 +589,8 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                           animationsMap['containerOnPageLoadAnimation3']!),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 12.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 24.0, 0.0, 12.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent(

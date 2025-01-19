@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -64,11 +66,20 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                       child: Stack(
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         children: [
-                          Image.network(
-                            'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/22286819-5e0e-436d-af37-47043dd99fe0/esc-womens-sleeveless-jacket-0DDzLT.png',
+                          CachedNetworkImage(
+                            imageUrl:
+                                'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/22286819-5e0e-436d-af37-47043dd99fe0/esc-womens-sleeveless-jacket-0DDzLT.png',
                             width: double.infinity,
                             height: double.infinity,
                             fit: BoxFit.cover,
+                            cacheKey: 'nike_jacket_static',
+                            placeholder: (context, url) => Container(
+                              color: Colors.grey[200],
+                              child: const Center(
+                                  child: CircularProgressIndicator()),
+                            ),
+                            errorWidget: (context, url, error) =>
+                                const Icon(Icons.error),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
@@ -83,11 +94,11 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.85, -0.4),
+                                      alignment: const AlignmentDirectional(
+                                          0.85, -0.4),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 50.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 50.0, 0.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
@@ -110,11 +121,11 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.85, -0.4),
+                                      alignment: const AlignmentDirectional(
+                                          0.85, -0.4),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 50.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 50.0, 0.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
@@ -148,17 +159,17 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                                       color: Color(0x31000000),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 16.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 16.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 20.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(24.0, 20.0, 0.0, 0.0),
                                             child: Text(
                                               'Dessert Trench',
                                               style:
@@ -181,9 +192,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                                             ),
                                           ),
                                           Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    24.0, 8.0, 24.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(24.0, 8.0, 24.0, 0.0),
                                             child: Text(
                                               'Effortlessly flow from one space to the next in this sleeveless take on the classic trench coat. ',
                                               textAlign: TextAlign.start,
@@ -217,8 +227,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          24.0, 16.0, 24.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -288,8 +298,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          24.0, 8.0, 0.0, 0.0),
                       child: Text(
                         'Options',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
@@ -302,8 +312,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 5.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          24.0, 5.0, 0.0, 0.0),
                       child: Text(
                         'Please make a selection from the options below.',
                         style: FlutterFlowTheme.of(context).labelSmall.override(
@@ -317,8 +327,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          24.0, 0.0, 24.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -437,7 +447,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                 borderRadius: BorderRadius.circular(0.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -453,8 +464,8 @@ class _Product3JacketWidgetState extends State<Product3JacketWidget> {
                           ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 4.0, 0.0, 0.0),
                       child: Text(
                         '1 Item',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(

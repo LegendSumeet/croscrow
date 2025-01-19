@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/base_auth_user_provider.dart';
 import '/backend/backend.dart';
 import '/components/card11_options_widget.dart';
@@ -28,7 +30,8 @@ class HomepageCopyCopyCopyCopyWidget extends StatefulWidget {
 }
 
 class _HomepageCopyCopyCopyCopyWidgetState
-    extends State<HomepageCopyCopyCopyCopyWidget> with AutomaticKeepAliveClientMixin<HomepageCopyCopyCopyCopyWidget> {
+    extends State<HomepageCopyCopyCopyCopyWidget>
+    with AutomaticKeepAliveClientMixin<HomepageCopyCopyCopyCopyWidget> {
   late HomepageCopyCopyCopyCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -86,9 +89,7 @@ class _HomepageCopyCopyCopyCopyWidgetState
 
     return Builder(
       builder: (context) => GestureDetector(
-        onTap: () {
-
-        },
+        onTap: () {},
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1542,11 +1543,23 @@ class _HomepageCopyCopyCopyCopyWidgetState
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        child: Image.network(
-                                          rowItemsRecord.images.firstOrNull!,
+                                        child: CachedNetworkImage(
+                                          imageUrl: rowItemsRecord
+                                              .images.firstOrNull!,
                                           width: imageWidth(),
                                           height: imageHeight(),
                                           fit: BoxFit.cover,
+                                          cacheKey:
+                                              'row_item_func_${rowItemsRecord.images.firstOrNull}',
+                                          placeholder: (context, url) =>
+                                              Container(
+                                            color: Colors.grey[200],
+                                            child: const Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ),
@@ -1698,28 +1711,20 @@ class _HomepageCopyCopyCopyCopyWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                         ),
-                                        child: Image.network(
-                                          rowItemstyleRecord.image,
+                                        child: CachedNetworkImage(
+                                          imageUrl: rowItemstyleRecord.image,
                                           fit: BoxFit.contain,
-                                          loadingBuilder: (context, child,
-                                              loadingProgress) {
-                                            if (loadingProgress == null) {
-                                              return child;
-                                            }
-                                            return Center(
-                                              child: CircularProgressIndicator(
-                                                value: loadingProgress
-                                                            .expectedTotalBytes !=
-                                                        null
-                                                    ? loadingProgress
-                                                            .cumulativeBytesLoaded /
-                                                        (loadingProgress
-                                                                .expectedTotalBytes ??
-                                                            1)
-                                                    : null,
-                                              ),
-                                            );
-                                          },
+                                          cacheKey:
+                                              'style_loading_${rowItemstyleRecord.image}',
+                                          progressIndicatorBuilder: (context,
+                                                  url, downloadProgress) =>
+                                              Center(
+                                            child: CircularProgressIndicator(
+                                              value: downloadProgress.progress,
+                                            ),
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ),
@@ -1869,11 +1874,12 @@ class _HomepageCopyCopyCopyCopyWidgetState
                                             onTap: () async {
                                               logFirebaseEvent(
                                                   'HOMECOPY_COPY_COPY_COPY_Image_02jkvf85_O');
-                                              String targetRoute =
-                                                  screenWidth < 800.0
-                                                      ? 'ProductDetail'
-                                                      : 'ProductDetailCopyCopyCopy';
-                                              logFirebaseEvent('Image_navigate_to');
+                                              String targetRoute = screenWidth <
+                                                      800.0
+                                                  ? 'ProductDetail'
+                                                  : 'ProductDetailCopyCopyCopy';
+                                              logFirebaseEvent(
+                                                  'Image_navigate_to');
                                               context.pushNamed(
                                                 targetRoute,
                                                 queryParameters: {
@@ -1888,17 +1894,27 @@ class _HomepageCopyCopyCopyCopyWidgetState
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
-                                              child: Image.network(
-                                                staggeredViewItemsRecord
-                                                    .images.firstOrNull!,
+                                              child: CachedNetworkImage(
+                                                imageUrl:
+                                                    staggeredViewItemsRecord
+                                                        .images.firstOrNull!,
                                                 width: double.infinity,
-                                                // width: screenWidth < 1000.0
-                                                //     ? 200.0
-                                                //     : 320.0, // Optimized width
                                                 height: screenWidth < 1000.0
                                                     ? 300.0
-                                                    : 460.0, // Optimized height
+                                                    : 460.0,
                                                 fit: BoxFit.cover,
+                                                cacheKey:
+                                                    'staggered_inf_${staggeredViewItemsRecord.images.firstOrNull}',
+                                                placeholder: (context, url) =>
+                                                    Container(
+                                                  color: Colors.grey[200],
+                                                  child: const Center(
+                                                      child:
+                                                          CircularProgressIndicator()),
+                                                ),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        const Icon(Icons.error),
                                               ),
                                             ),
                                           ),
@@ -2385,7 +2401,7 @@ class _HomepageCopyCopyCopyCopyWidgetState
 
   @override
   // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true  ;
+  bool get wantKeepAlive => true;
 }
 
 class OptimizedCarousel extends StatelessWidget {

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -221,19 +223,27 @@ class _BrandsWidgetState extends State<BrandsWidget> {
                         return SizedBox(
                           width: 380.0,
                           height: 190.0,
-                          child: CarouselSlider.builder(
+                          child: CarouselSlider.builder(  
                             itemCount: carouselNewdroprowRecordList.length,
                             itemBuilder: (context, carouselIndex, _) {
                               final carouselNewdroprowRecord =
                                   carouselNewdroprowRecordList[carouselIndex];
                               return ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  carouselNewdroprowRecord.image,
+                                child: CachedNetworkImage(
+                                  imageUrl: carouselNewdroprowRecord.image,
                                   width: 380.0,
                                   height: 190.0,
                                   fit: BoxFit.cover,
-                                ),
+                                  cacheKey: 'carousel_${carouselNewdroprowRecord.image}',
+                                  placeholder: (context, url) => Container(
+                                    color: Colors.grey[200],
+                                    child: const Center(
+                                      child: CircularProgressIndicator(),
+                                    ),
+                                  ),
+                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                )
                               );
                             },
                             carouselController: _model.carouselController ??=

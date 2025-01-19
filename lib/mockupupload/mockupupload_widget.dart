@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -152,20 +154,38 @@ class _MockupuploadWidgetState extends State<MockupuploadWidget> {
                                 ),
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/603/600',
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        'https://picsum.photos/seed/603/600',
                                     width: 300.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,
+                                    cacheKey: 'picsum_603',
+                                    placeholder: (context, url) => Container(
+                                      color: Colors.grey[200],
+                                      child: const Center(
+                                          child: CircularProgressIndicator()),
+                                    ),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
                                   ),
                                 ),
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/579/600',
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        'https://picsum.photos/seed/579/600',
                                     width: 300.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,
+                                    cacheKey: 'picsum_579',
+                                    placeholder: (context, url) => Container(
+                                      color: Colors.grey[200],
+                                      child: const Center(
+                                          child: CircularProgressIndicator()),
+                                    ),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
                                   ),
                                 ),
                               ],
@@ -248,8 +268,8 @@ class _MockupuploadWidgetState extends State<MockupuploadWidget> {
                     ],
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 20.0, 0.0, 0.0),
                     child: Text(
                       'WANNA BE A DESIGNER',
                       style: FlutterFlowTheme.of(context).titleLarge.override(
@@ -264,8 +284,8 @@ class _MockupuploadWidgetState extends State<MockupuploadWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 10.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 8.0, 24.0, 10.0),
                     child: Text(
                       'DESIGN OR UPLOAD YOUR MOCKUPS HERE \nIF IT\'S SEXY ENOUGH WE\'LL GIVE IT A SHOT',
                       textAlign: TextAlign.center,
@@ -345,8 +365,8 @@ class _MockupuploadWidgetState extends State<MockupuploadWidget> {
                         height: 24.0,
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
-                        iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primaryText,
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
@@ -369,8 +389,8 @@ class _MockupuploadWidgetState extends State<MockupuploadWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 15.0, 10.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        10.0, 15.0, 10.0, 0.0),
                     child: Container(
                       width: 399.0,
                       height: 148.0,
@@ -412,11 +432,22 @@ class _MockupuploadWidgetState extends State<MockupuploadWidget> {
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          rowComingSoonRecord.image,
+                                        child: CachedNetworkImage(
+                                          imageUrl: rowComingSoonRecord.image,
                                           width: 110.0,
                                           height: 213.0,
                                           fit: BoxFit.cover,
+                                          cacheKey:
+                                              'coming_soon_${rowComingSoonRecord.image}',
+                                          placeholder: (context, url) =>
+                                              Container(
+                                            color: Colors.grey[200],
+                                            child: const Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       ),
                                     ),

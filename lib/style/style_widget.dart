@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -72,7 +74,8 @@ class _StyleWidgetState extends State<StyleWidget> {
               backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
               automaticallyImplyLeading: false,
               leading: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                 child: Container(
                   width: 162.0,
                   height: 39.0,
@@ -80,7 +83,8 @@ class _StyleWidgetState extends State<StyleWidget> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 0.0, 0.0, 5.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -126,7 +130,8 @@ class _StyleWidgetState extends State<StyleWidget> {
               ),
               actions: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                   child: Container(
                     width: 46.0,
                     height: 59.0,
@@ -217,8 +222,8 @@ class _StyleWidgetState extends State<StyleWidget> {
                                           listViewItemstyleRecordList[
                                               listViewIndex];
                                       return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 8.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 0.0, 16.0, 8.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -260,25 +265,36 @@ class _StyleWidgetState extends State<StyleWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 1.0,
-                                                                1.0, 1.0),
+                                                            .fromSTEB(
+                                                            0.0, 1.0, 1.0, 1.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               6.0),
-                                                      child: Image.network(
-                                                        listViewItemstyleRecord
-                                                            .image,
+                                                      child: CachedNetworkImage(
+                                                        imageUrl:
+                                                            listViewItemstyleRecord
+                                                                .image,
                                                         width: 100.0,
                                                         height: 130.0,
                                                         fit: BoxFit.cover,
+                                                        cacheKey:
+                                                            'style_${listViewItemstyleRecord.image}',
+                                                        placeholder: (context,
+                                                                url) =>
+                                                            const CircularProgressIndicator(),
+                                                        errorWidget: (context,
+                                                                url, error) =>
+                                                            const Icon(
+                                                                Icons.error),
                                                       ),
                                                     ),
                                                   ),
@@ -286,11 +302,8 @@ class _StyleWidgetState extends State<StyleWidget> {
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  8.0,
-                                                                  8.0,
-                                                                  4.0,
-                                                                  0.0),
+                                                              .fromSTEB(8.0,
+                                                              8.0, 4.0, 0.0),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -357,8 +370,8 @@ class _StyleWidgetState extends State<StyleWidget> {
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        0.0, 10.0, 0.0, 0.0),
                     child: Container(
                       height: 500.0,
                       decoration: BoxDecoration(
@@ -393,7 +406,8 @@ class _StyleWidgetState extends State<StyleWidget> {
                                         .primaryText,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment:
+                                        const AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       stylesItem,
                                       textAlign: TextAlign.center,

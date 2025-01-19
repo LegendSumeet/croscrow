@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -317,13 +319,18 @@ class _Cart62WidgetState extends State<Cart62Widget> {
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(0.0),
-                                                child: Image.network(
-                                                  containerItemsRecord
-                                                      .images.firstOrNull!,
+                                                child: CachedNetworkImage(
+                                                  imageUrl: containerItemsRecord.images.firstOrNull!,
                                                   width: 80.0,
                                                   height: 120.0,
                                                   fit: BoxFit.fitWidth,
-                                                ),
+                                                  cacheKey: 'item_${containerItemsRecord.images.firstOrNull}',
+                                                  placeholder: (context, url) => Container(
+                                                    color: Colors.grey[200],
+                                                    child: const Center(child: CircularProgressIndicator()),
+                                                  ),
+                                                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                                                )
                                               ),
                                             ),
                                             Expanded(

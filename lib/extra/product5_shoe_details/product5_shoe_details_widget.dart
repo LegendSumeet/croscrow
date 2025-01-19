@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -252,8 +254,8 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Air Jordan XXXVI Low',
                       style:
@@ -269,8 +271,8 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                         animationsMap['textOnPageLoadAnimation1']!),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 4.0, 0.0, 0.0),
                     child: Text(
                       'Men’s Basketball Shoes',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -284,8 +286,8 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                         animationsMap['textOnPageLoadAnimation2']!),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 4.0, 0.0, 0.0),
                     child: Text(
                       '\$175',
                       style:
@@ -301,8 +303,8 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                         animationsMap['textOnPageLoadAnimation3']!),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        24.0, 16.0, 24.0, 0.0),
                     child: Text(
                       'Lace up in the energy that sparked a basketball revolution. One of the lightest Air Jordan game shoes to date, the AJ XXXVI features',
                       style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -385,8 +387,8 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                     ],
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 140.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(
+                        16.0, 16.0, 16.0, 140.0),
                     child: Wrap(
                       spacing: 8.0,
                       runSpacing: 8.0,
@@ -441,7 +443,8 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                 ),
                 alignment: const AlignmentDirectional(0.0, -0.45),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      24.0, 0.0, 24.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
@@ -450,10 +453,10 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 60.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 0.0, 0.0),
+                      iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primaryText,
                       textStyle: FlutterFlowTheme.of(context)
                           .titleSmall
@@ -486,38 +489,70 @@ class _Product5ShoeDetailsWidgetState extends State<Product5ShoeDetailsWidget>
                   items: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/297/600',
+                      child: CachedNetworkImage(
+                        imageUrl: 'https://picsum.photos/seed/297/600',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
+                        cacheKey: 'picsum_297',
+                        placeholder: (context, url) => Container(
+                          color: Colors.grey[200],
+                          child:
+                              const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/35/600',
+                      child: CachedNetworkImage(
+                        imageUrl: 'https://picsum.photos/seed/297/600',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
+                        cacheKey: 'picsum_297',
+                        placeholder: (context, url) => Container(
+                          color: Colors.grey[200],
+                          child:
+                              const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/98/600',
+                      child: CachedNetworkImage(
+                        imageUrl: 'https://picsum.photos/seed/297/600',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
+                        cacheKey: 'picsum_297',
+                        placeholder: (context, url) => Container(
+                          color: Colors.grey[200],
+                          child:
+                              const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/816/600',
+                      child: CachedNetworkImage(
+                        imageUrl: 'https://picsum.photos/seed/297/600',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
+                        cacheKey: 'picsum_297',
+                        placeholder: (context, url) => Container(
+                          color: Colors.grey[200],
+                          child:
+                              const Center(child: CircularProgressIndicator()),
+                        ),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                   ],

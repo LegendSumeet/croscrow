@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -61,8 +63,8 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          5.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -290,7 +292,8 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(
+                      16.0, 12.0, 0.0, 0.0),
                   child: Text(
                     'THIS IS WHAT YOU LOOKING FOR...',
                     style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -365,20 +368,27 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
-                                              child: Image.network(
-                                                searchItem.images.firstOrNull!,
+                                              child: CachedNetworkImage(
+                                                imageUrl: searchItem
+                                                    .images.firstOrNull!,
                                                 width: 120.0,
                                                 height: 120.0,
                                                 fit: BoxFit.cover,
+                                                cacheKey:
+                                                    'search_${searchItem.images.firstOrNull}',
+                                                placeholder: (context, url) =>
+                                                    const CircularProgressIndicator(),
+                                                errorWidget:
+                                                    (context, url, error) =>
+                                                        const Icon(Icons.error),
                                               ),
                                             ),
                                           ),
                                         ),
                                         Expanded(
                                           child: Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
+                                            padding: const EdgeInsetsDirectional
+                                                .fromSTEB(12.0, 0.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -406,8 +416,9 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
@@ -416,11 +427,8 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                0.0, 12.0, 0.0),
                                                         child: Text(
                                                           formatNumber(
                                                             searchItem.price,
@@ -453,8 +461,9 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 4.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
@@ -463,11 +472,8 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                                                       Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    12.0,
-                                                                    0.0),
+                                                                .fromSTEB(0.0,
+                                                                0.0, 12.0, 0.0),
                                                         child: Text(
                                                           searchItem.brand,
                                                           style: FlutterFlowTheme
@@ -490,7 +496,8 @@ class _SearchpageWidgetState extends State<SearchpageWidget> {
                                                     ],
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(height: 4.0)),
+                                              ].divide(
+                                                  const SizedBox(height: 4.0)),
                                             ),
                                           ),
                                         ),

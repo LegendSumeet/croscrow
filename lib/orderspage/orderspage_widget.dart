@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -59,7 +61,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -105,7 +108,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+              padding:
+                  const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
               child: Container(
                 width: 46.0,
                 height: 59.0,
@@ -155,7 +159,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
                   child: Text(
                     'YOUR  RECENT ORDERS',
                     textAlign: TextAlign.start,
@@ -232,17 +237,17 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 12.0, 16.0, 12.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 12.0, 16.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 12.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0.0, 0.0, 12.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -300,8 +305,9 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 10.0, 0.0, 0.0),
                                                 child: Text(
                                                   dateTimeFormat(
@@ -330,8 +336,9 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                               if (listViewOrders2Record.off >
                                                   0.0)
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Container(
                                                     height: 32.0,
@@ -394,7 +401,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                       .periodDecimal,
                                                               currency: '₹',
                                                             ),
-                                                            style: const TextStyle(
+                                                            style:
+                                                                const TextStyle(
                                                               fontSize: 10.0,
                                                             ),
                                                           )
@@ -428,8 +436,9 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        0.0, 0.0),
                                                 child: Text(
                                                   'TRACKING ID',
                                                   style: FlutterFlowTheme.of(
@@ -513,8 +522,9 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                               CrossAxisAlignment.end,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 0.0, 0.0, 12.0),
                                               child: Text(
                                                 formatNumber(
@@ -546,8 +556,9 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 15.0, 0.0, 0.0),
                                               child: Container(
                                                 height: 32.0,
@@ -573,7 +584,7 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
-                                                                12.0, 0.0),
+                                                            12.0, 0.0),
                                                     child: Text(
                                                       listViewOrders2Record
                                                           .status,
@@ -629,8 +640,9 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                             final orderlistItem =
                                                 orderlist[orderlistIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 0.0, 0.0, 10.0),
                                               child: StreamBuilder<ItemsRecord>(
                                                 stream: ItemsRecord.getDocument(
@@ -657,15 +669,13 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
 
                                                   return Container(
                                                     height: 125.0,
-                                                    decoration: const BoxDecoration(),
+                                                    decoration:
+                                                        const BoxDecoration(),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0),
+                                                              .fromSTEB(5.0,
+                                                              5.0, 5.0, 5.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -686,14 +696,33 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                       .circular(
                                                                           2.0),
                                                               child:
-                                                                  Image.network(
-                                                                containerItemsRecord
-                                                                    .images
-                                                                    .firstOrNull!,
+                                                                  CachedNetworkImage(
+                                                                imageUrl:
+                                                                    containerItemsRecord
+                                                                        .images
+                                                                        .firstOrNull!,
                                                                 width: 80.0,
                                                                 height: 120.0,
                                                                 fit: BoxFit
                                                                     .cover,
+                                                                cacheKey:
+                                                                    'container_item_small_${containerItemsRecord.images.firstOrNull}',
+                                                                placeholder:
+                                                                    (context,
+                                                                            url) =>
+                                                                        Container(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      200],
+                                                                  child: const Center(
+                                                                      child:
+                                                                          CircularProgressIndicator()),
+                                                                ),
+                                                                errorWidget: (context,
+                                                                        url,
+                                                                        error) =>
+                                                                    const Icon(Icons
+                                                                        .error),
                                                               ),
                                                             ),
                                                           ),
@@ -706,10 +735,10 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Column(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -728,7 +757,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             15.0,
                                                                             0.0,
                                                                             0.0,
@@ -759,7 +789,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             15.0,
                                                                             10.0,
                                                                             0.0,
@@ -794,7 +825,8 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional
+                                                                            .fromSTEB(
                                                                             15.0,
                                                                             10.0,
                                                                             0.0,
@@ -860,10 +892,10 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                                                   Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                     child: StreamBuilder<
                                                                         BrandsRecord>(
                                                                       stream: BrandsRecord.getDocument(

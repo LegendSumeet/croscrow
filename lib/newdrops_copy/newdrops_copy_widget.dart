@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
@@ -89,8 +91,8 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -144,11 +146,25 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                               return ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  carouselNewdropsRecord.image,
+                                                child: CachedNetworkImage(
+                                                  imageUrl:
+                                                      carouselNewdropsRecord
+                                                          .image,
                                                   width: 469.0,
                                                   height: 200.0,
                                                   fit: BoxFit.cover,
+                                                  cacheKey:
+                                                      'new_drops_${carouselNewdropsRecord.image}',
+                                                  placeholder: (context, url) =>
+                                                      Container(
+                                                    color: Colors.grey[200],
+                                                    child: const Center(
+                                                        child:
+                                                            CircularProgressIndicator()),
+                                                  ),
+                                                  errorWidget: (context, url,
+                                                          error) =>
+                                                      const Icon(Icons.error),
                                                 ),
                                               );
                                             },
@@ -171,7 +187,8 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                               scrollDirection: Axis.horizontal,
                                               autoPlay: true,
                                               autoPlayAnimationDuration:
-                                                  const Duration(milliseconds: 800),
+                                                  const Duration(
+                                                      milliseconds: 800),
                                               autoPlayInterval: const Duration(
                                                   milliseconds: (800 + 4000)),
                                               autoPlayCurve: Curves.linear,
@@ -195,8 +212,9 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'NEW LAUNCHES',
                                       style: FlutterFlowTheme.of(context)
@@ -248,11 +266,24 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                       return ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          carouselNewdroprowRecord.image,
+                                        child: CachedNetworkImage(
+                                          imageUrl:
+                                              carouselNewdroprowRecord.image,
                                           width: 380.0,
                                           height: 190.0,
                                           fit: BoxFit.cover,
+                                          cacheKey:
+                                              'carousel_newdrop_${carouselNewdroprowRecord.image}',
+                                          placeholder: (context, url) =>
+                                              Container(
+                                            color: Colors.grey[200],
+                                            child: const Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            ),
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
                                         ),
                                       );
                                     },
@@ -276,8 +307,8 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                       autoPlay: true,
                                       autoPlayAnimationDuration:
                                           const Duration(milliseconds: 800),
-                                      autoPlayInterval:
-                                          const Duration(milliseconds: (800 + 4000)),
+                                      autoPlayInterval: const Duration(
+                                          milliseconds: (800 + 4000)),
                                       autoPlayCurve: Curves.linear,
                                       pauseAutoPlayInFiniteScroll: true,
                                       onPageChanged: (index, _) =>
@@ -294,8 +325,9 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'COMING SOON',
                                       style: FlutterFlowTheme.of(context)
@@ -350,11 +382,24 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                           ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              carouselComingsoonRecord.image,
+                                            child: CachedNetworkImage(
+                                              imageUrl: carouselComingsoonRecord
+                                                  .image,
                                               width: 300.0,
                                               height: 364.0,
                                               fit: BoxFit.contain,
+                                              cacheKey:
+                                                  'coming_soon_carousel_${carouselComingsoonRecord.image}',
+                                              placeholder: (context, url) =>
+                                                  Container(
+                                                color: Colors.grey[200],
+                                                child: const Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                              ),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      const Icon(Icons.error),
                                             ),
                                           ),
                                           Container(
@@ -366,8 +411,10 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 1.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -386,10 +433,10 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           child: Text(
                                                             carouselComingsoonRecord
                                                                 .brand,
@@ -427,10 +474,10 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           child: Text(
                                                             carouselComingsoonRecord
                                                                 .name,
@@ -540,8 +587,8 @@ class _NewdropsCopyWidgetState extends State<NewdropsCopyWidget> {
                                       autoPlay: true,
                                       autoPlayAnimationDuration:
                                           const Duration(milliseconds: 800),
-                                      autoPlayInterval:
-                                          const Duration(milliseconds: (800 + 4000)),
+                                      autoPlayInterval: const Duration(
+                                          milliseconds: (800 + 4000)),
                                       autoPlayCurve: Curves.linear,
                                       pauseAutoPlayInFiniteScroll: true,
                                       onPageChanged: (index, _) =>

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
@@ -77,8 +79,8 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          0.0, 20.0, 0.0, 0.0),
                       child: SingleChildScrollView(
                         primary: false,
                         child: Column(
@@ -132,11 +134,25 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                               return ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  carouselNewdropsRecord.image,
+                                                child: CachedNetworkImage(
+                                                  imageUrl:
+                                                      carouselNewdropsRecord
+                                                          .image,
                                                   width: 469.0,
                                                   height: 200.0,
                                                   fit: BoxFit.cover,
+                                                  cacheKey:
+                                                      'new_drops_${carouselNewdropsRecord.image}',
+                                                  placeholder: (context, url) =>
+                                                      Container(
+                                                    color: Colors.grey[200],
+                                                    child: const Center(
+                                                        child:
+                                                            CircularProgressIndicator()),
+                                                  ),
+                                                  errorWidget: (context, url,
+                                                          error) =>
+                                                      const Icon(Icons.error),
                                                 ),
                                               );
                                             },
@@ -159,7 +175,8 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                               scrollDirection: Axis.horizontal,
                                               autoPlay: true,
                                               autoPlayAnimationDuration:
-                                                  const Duration(milliseconds: 800),
+                                                  const Duration(
+                                                      milliseconds: 800),
                                               autoPlayInterval: const Duration(
                                                   milliseconds: (800 + 4000)),
                                               autoPlayCurve: Curves.linear,
@@ -183,8 +200,9 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'NEW LAUNCHES',
                                       style: FlutterFlowTheme.of(context)
@@ -351,8 +369,9 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 5.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 5.0),
                                       child: Container(
                                         width: 380.0,
                                         height: 190.0,
@@ -452,8 +471,9 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       'TRENDING',
                                       style: FlutterFlowTheme.of(context)
@@ -506,12 +526,24 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                           ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              carouselItemsRecord
+                                            child: CachedNetworkImage(
+                                              imageUrl: carouselItemsRecord
                                                   .images.firstOrNull!,
                                               width: 300.0,
                                               height: 364.0,
                                               fit: BoxFit.cover,
+                                              cacheKey:
+                                                  'carousel_item_${carouselItemsRecord.images.firstOrNull}',
+                                              placeholder: (context, url) =>
+                                                  Container(
+                                                color: Colors.grey[200],
+                                                child: const Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                              ),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      const Icon(Icons.error),
                                             ),
                                           ),
                                           Container(
@@ -523,8 +555,10 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                                       .secondaryBackground,
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 1.0, 0.0, 0.0),
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                      0.0, 1.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -543,10 +577,10 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           child: Text(
                                                             carouselItemsRecord
                                                                 .brand,
@@ -584,10 +618,10 @@ class _NewdropsWidgetState extends State<NewdropsWidget> {
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
                                                           child: Text(
                                                             carouselItemsRecord
                                                                 .name,

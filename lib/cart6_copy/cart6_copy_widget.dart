@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '/auth/base_auth_user_provider.dart';
 import '/backend/backend.dart';
 import '/components/login_widget.dart';
@@ -94,8 +96,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                   height: 40.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding:
+                                      const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -135,10 +138,12 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                   options: FFButtonOptions(
                                     width: 150.0,
                                     height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                    iconPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -202,8 +207,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                     itemBuilder: (context, samanIndex) {
                                       final samanItem = saman[samanIndex];
                                       return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 8.0, 16.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(16.0, 8.0, 16.0, 0.0),
                                         child: StreamBuilder<ItemsRecord>(
                                           stream: ItemsRecord.getDocument(
                                               samanItem.menuitemref!),
@@ -248,8 +253,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                     BorderRadius.circular(2.0),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         12.0, 8.0, 8.0, 8.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -264,28 +270,45 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                       transitionOnUserGestures:
                                                           true,
                                                       child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          containerItemsRecord
-                                                              .images
-                                                              .firstOrNull!,
-                                                          width: 80.0,
-                                                          height: 120.0,
-                                                          fit: BoxFit.fitWidth,
-                                                        ),
-                                                      ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      0.0),
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            imageUrl:
+                                                                containerItemsRecord
+                                                                    .images
+                                                                    .firstOrNull!,
+                                                            width: 80.0,
+                                                            height: 120.0,
+                                                            fit:
+                                                                BoxFit.fitWidth,
+                                                            cacheKey:
+                                                                'item_${containerItemsRecord.images.firstOrNull}',
+                                                            placeholder:
+                                                                (context,
+                                                                        url) =>
+                                                                    Container(
+                                                              color: Colors
+                                                                  .grey[200],
+                                                              child: const Center(
+                                                                  child:
+                                                                      CircularProgressIndicator()),
+                                                            ),
+                                                            errorWidget: (context,
+                                                                    url,
+                                                                    error) =>
+                                                                const Icon(Icons
+                                                                    .error),
+                                                          )),
                                                     ),
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    12.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
+                                                                .fromSTEB(12.0,
+                                                                0.0, 10.0, 0.0),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -320,10 +343,10 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               child: Text(
                                                                 formatNumber(
                                                                   containerItemsRecord
@@ -356,10 +379,10 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                               padding:
                                                                   const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0),
                                                               child: Container(
                                                                 height: 30.0,
                                                                 constraints:
@@ -393,10 +416,10 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                                       Padding(
                                                                     padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            5.0,
-                                                                            5.0,
-                                                                            5.0,
-                                                                            5.0),
+                                                                        5.0,
+                                                                        5.0,
+                                                                        5.0,
+                                                                        5.0),
                                                                     child:
                                                                         RichText(
                                                                       textScaler:
@@ -549,14 +572,15 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              10.0, 0.0, 10.0, 0.0),
                                       child: Container(
                                         height: 75.0,
                                         decoration: const BoxDecoration(),
                                         child: Align(
-                                          alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                          alignment: const AlignmentDirectional(
+                                              0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -564,8 +588,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           20.0, 0.0, 20.0, 0.0),
                                                   child: SizedBox(
                                                     width: MediaQuery.sizeOf(
@@ -717,13 +742,14 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                 text: 'APPLY',
                                                 options: FFButtonOptions(
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryBackground,
@@ -766,8 +792,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 16.0, 24.0, 4.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              24.0, 16.0, 24.0, 4.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -794,8 +821,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 8.0, 24.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              24.0, 8.0, 24.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -848,8 +876,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 8.0, 24.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              24.0, 8.0, 24.0, 0.0),
                                       child:
                                           StreamBuilder<List<PromocodesRecord>>(
                                         stream: queryPromocodesRecord(
@@ -1014,8 +1043,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 8.0, 24.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              24.0, 8.0, 24.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1098,8 +1128,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 4.0, 24.0, 12.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              24.0, 4.0, 24.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1172,8 +1203,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                     ),
                                     if (FFAppState().cart.isNotEmpty)
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 20.0, 0.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(0.0, 20.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -1219,13 +1250,14 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                 text: 'CHECKOUT',
                                                 options: FFButtonOptions(
                                                   height: 40.0,
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           16.0, 0.0, 16.0, 0.0),
                                                   iconPadding:
                                                       const EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
+                                                          .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
@@ -1334,10 +1366,12 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                   text: 'GO TO LOGIN',
                                   options: FFButtonOptions(
                                     height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                    iconPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1411,10 +1445,12 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                   text: 'SHOP NOW',
                                   options: FFButtonOptions(
                                     height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                    iconPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -1474,9 +1510,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                       itemBuilder: (context, samanIndex) {
                                         final samanItem = saman[samanIndex];
                                         return Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 8.0, 16.0, 0.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(16.0, 8.0, 16.0, 0.0),
                                           child: StreamBuilder<ItemsRecord>(
                                             stream: ItemsRecord.getDocument(
                                                 samanItem.menuitemref!),
@@ -1522,8 +1557,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                           2.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
+                                                  padding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(
                                                           12.0, 8.0, 8.0, 8.0),
                                                   child: Row(
                                                     mainAxisSize:
@@ -1540,30 +1576,48 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                         transitionOnUserGestures:
                                                             true,
                                                         child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            containerItemsRecord
-                                                                .images
-                                                                .firstOrNull!,
-                                                            width: 80.0,
-                                                            height: 120.0,
-                                                            fit:
-                                                                BoxFit.fitWidth,
-                                                          ),
-                                                        ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        0.0),
+                                                            child:
+                                                                CachedNetworkImage(
+                                                              imageUrl:
+                                                                  containerItemsRecord
+                                                                      .images
+                                                                      .firstOrNull!,
+                                                              width: 80.0,
+                                                              height: 120.0,
+                                                              fit: BoxFit
+                                                                  .fitWidth,
+                                                              cacheKey:
+                                                                  'item_${containerItemsRecord.images.firstOrNull}',
+                                                              placeholder:
+                                                                  (context,
+                                                                          url) =>
+                                                                      Container(
+                                                                color: Colors
+                                                                    .grey[200],
+                                                                child: const Center(
+                                                                    child:
+                                                                        CircularProgressIndicator()),
+                                                              ),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  const Icon(Icons
+                                                                      .error),
+                                                            )),
                                                       ),
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
                                                               const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      12.0,
-                                                                      0.0,
-                                                                      10.0,
-                                                                      0.0),
+                                                                  12.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1602,10 +1656,10 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   formatNumber(
                                                                     containerItemsRecord
@@ -1636,10 +1690,10 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                                 padding:
                                                                     const EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        0.0,
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0),
                                                                 child:
                                                                     Container(
                                                                   height: 30.0,
@@ -1665,7 +1719,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                                             0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional
+                                                                          .fromSTEB(
                                                                           5.0,
                                                                           5.0,
                                                                           5.0,
@@ -1811,14 +1866,15 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(10.0, 0.0, 10.0, 0.0),
                                         child: Container(
                                           height: 75.0,
                                           decoration: const BoxDecoration(),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(
+                                                    0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1829,7 +1885,7 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(20.0, 0.0,
-                                                                20.0, 0.0),
+                                                            20.0, 0.0),
                                                     child: SizedBox(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -1987,11 +2043,11 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            16.0, 0.0),
                                                     iconPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
@@ -2034,8 +2090,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 16.0, 24.0, 4.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 16.0, 24.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -2063,8 +2119,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 8.0, 24.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 8.0, 24.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -2119,8 +2175,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 8.0, 24.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 8.0, 24.0, 0.0),
                                         child: StreamBuilder<
                                             List<PromocodesRecord>>(
                                           stream: queryPromocodesRecord(
@@ -2285,8 +2341,8 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 8.0, 24.0, 0.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 8.0, 24.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -2369,16 +2425,17 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 4.0, 24.0, 12.0),
+                                        padding: const EdgeInsetsDirectional
+                                            .fromSTEB(24.0, 4.0, 24.0, 12.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 0.0, 20.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -2453,8 +2510,9 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                padding:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 15.0, 0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -2500,11 +2558,11 @@ class _Cart6CopyWidgetState extends State<Cart6CopyWidget> {
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
-                                                                16.0, 0.0),
+                                                            16.0, 0.0),
                                                     iconPadding:
                                                         const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                            .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
