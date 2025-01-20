@@ -632,7 +632,7 @@ class _OrderspageWidgetState extends State<OrderspageWidget> {
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 10.0),
-                                              child: StreamBuilder<ItemsRecord>(
+                                              child: StreamBuilder<ItemsRecord?>(
                                                 stream: ItemsRecord.getDocument(
                                                     orderlistItem.menuitemref!),
                                                 builder: (context, snapshot) {

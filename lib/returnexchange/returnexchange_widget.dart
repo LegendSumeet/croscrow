@@ -205,7 +205,7 @@ class _ReturnexchangeWidgetState extends State<ReturnexchangeWidget>
                             ),
                       ),
                     ),
-                    StreamBuilder<ItemsRecord>(
+                    StreamBuilder<ItemsRecord?>(
                       stream: ItemsRecord.getDocument(widget.itemRef!),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.

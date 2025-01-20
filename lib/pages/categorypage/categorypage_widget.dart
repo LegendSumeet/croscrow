@@ -110,7 +110,7 @@ class _CategorypageWidgetState extends State<CategorypageWidget> {
                 logFirebaseEvent('CATEGORYPAGE_PAGE_Image_ft743end_ON_TAP');
                 logFirebaseEvent('Image_navigate_to');
 
-                context.pushNamed('homepageCopyCopyCopyCopy');
+                context.pushNamed('_initialize');
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),

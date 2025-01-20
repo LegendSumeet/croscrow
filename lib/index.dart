@@ -17,9 +17,6 @@ export '/viewall/viewall_widget.dart' show ViewallWidget;
 export '/searchpage/searchpage_widget.dart' show SearchpageWidget;
 export '/profile2/profile2_widget.dart' show Profile2Widget;
 export '/branddata/branddata_widget.dart' show BranddataWidget;
-export '/cart62/cart62_widget.dart' show Cart62Widget;
-export '/homepage_copy_copy_copy/homepage_copy_copy_copy_widget.dart'
-    show HomepageCopyCopyCopyWidget;
 export '/pages/catpage/catpage_widget.dart' show CatpageWidget;
 export '/support/support_widget.dart' show SupportWidget;
 export '/newdrops/newdrops_widget.dart' show NewdropsWidget;

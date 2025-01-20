@@ -1,9 +1,14 @@
 flutter_native_splash:
-  color: "#FFFFFF"
-  color_dark: "#14181B"
+  color: "#FFFFFF"  # Light theme background color
+  color_dark: "#FFFFFF"  # Dark theme background color
+
   android_12:
-    color: "#FFFFFF"
-    color_dark: "#14181B"
-  android: true
-  ios: true
-  web: true
+    color: "#FFFFFF"  # Light theme background for Android 12
+    color_dark: "#FFFFFF"  # Dark theme background for Android 12
+
+  android: true  # Enable splash for Android
+  ios: true  # Enable splash for iOS
+  web: true  # Enable splash for web
+
+  image: "assets/images/adaptive_foreground_icon.png"  # Image for splash screen (light theme)
+  image_dark: "assets/images/adaptive_foreground_icon.png"  # Image for splash screen (dark theme)

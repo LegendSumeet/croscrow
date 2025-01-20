@@ -354,7 +354,7 @@ class _ViewallWidgetState extends State<ViewallWidget> {
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Flexible(
+                                  Expanded(
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,

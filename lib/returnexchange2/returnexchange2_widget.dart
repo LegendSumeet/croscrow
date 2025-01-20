@@ -127,9 +127,39 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
         ),
         body: SafeArea(
           top: true,
-          child: StreamBuilder<ItemsRecord>(
-            stream: ItemsRecord.getDocument(widget.itemref!),
+          child: StreamBuilder<ItemsRecord?>(
+            stream: widget.itemref != null
+                ? ItemsRecord.getDocument(widget.itemref!)
+                : Stream.value(
+                    null), // Emits a single `null` value in the stream
+
             builder: (context, snapshot) {
+              // Handle null or error in the snapshot
+              if (snapshot.hasError) {
+                return Scaffold(
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                  body: Center(
+                    child: Text(
+                      'Error loading item.',
+                      style: FlutterFlowTheme.of(context).bodyText1,
+                    ),
+                  ),
+                );
+              }
+
+              if (!snapshot.hasData || snapshot.data == null) {
+                return Scaffold(
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).secondaryBackground,
+                  body: Center(
+                    child: Text(
+                      'No Item Found',
+                      style: FlutterFlowTheme.of(context).bodyText1,
+                    ),
+                  ),
+                );
+              }
               // Customize what your widget looks like when it's loading.
               if (!snapshot.hasData) {
                 return Center(
@@ -199,10 +229,12 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment:
+                                        const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 10.0, 0.0, 0.0),
+                                      padding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 10.0, 0.0, 0.0),
                                       child: SizedBox(
                                         width: 200.0,
                                         child: TextFormField(
@@ -231,24 +263,25 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                                       lineHeight: 3.0,
                                                     ),
                                             hintText: 'NAME',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
+                                            hintStyle: FlutterFlowTheme.of(
+                                                    context)
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily,
+                                                  color:
+                                                      const Color(0xA257636C),
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMediumFamily,
-                                                      color: const Color(0xA257636C),
-                                                      fontSize: 12.0,
-                                                      letterSpacing: 0.0,
-                                                      useGoogleFonts: GoogleFonts
-                                                              .asMap()
-                                                          .containsKey(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily),
-                                                    ),
+                                                              .labelMediumFamily),
+                                                ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -320,8 +353,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController2,
                                       focusNode: _model.textFieldFocusNode2,
@@ -421,8 +455,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController3,
                                       focusNode: _model.textFieldFocusNode3,
@@ -522,8 +557,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 10.0, 0.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController4,
                                       focusNode: _model.textFieldFocusNode4,
@@ -675,8 +711,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                               MainAxisAlignment.end,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       0.0, 12.0, 0.0, 0.0),
                                               child: ClipRRect(
                                                 borderRadius:
@@ -691,8 +728,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
+                                              padding:
+                                                  const EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child:
                                                   FlutterFlowDropDown<String>(
@@ -743,8 +781,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                                 borderColor: Colors.transparent,
                                                 borderWidth: 0.0,
                                                 borderRadius: 8.0,
-                                                margin: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                margin:
+                                                    const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         12.0, 0.0, 12.0, 0.0),
                                                 hidesUnderline: true,
                                                 isOverButton: false,
@@ -768,10 +807,8 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                     logFirebaseEvent(
                                         'RETURNEXCHANGE2_SUBMIT_TICKET_BTN_ON_TAP');
                                     if ((_model.textController2.text != '') &&
-                                        (_model.textController3.text !=
-                                                '') &&
-                                        (_model.textController4.text !=
-                                                '') &&
+                                        (_model.textController3.text != '') &&
+                                        (_model.textController4.text != '') &&
                                         (_model.dropDownValue != null &&
                                             _model.dropDownValue != '')) {
                                       logFirebaseEvent('Button_backend_call');
@@ -801,8 +838,8 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                               fontSize: 12.0,
                                             ),
                                           ),
-                                          duration:
-                                              const Duration(milliseconds: 4000),
+                                          duration: const Duration(
+                                              milliseconds: 4000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .tertiary,
@@ -822,8 +859,8 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                               fontSize: 12.0,
                                             ),
                                           ),
-                                          duration:
-                                              const Duration(milliseconds: 4000),
+                                          duration: const Duration(
+                                              milliseconds: 4000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .tertiary,
@@ -840,8 +877,9 @@ class _Returnexchange2WidgetState extends State<Returnexchange2Widget>
                                     width: double.infinity,
                                     height: 54.0,
                                     padding: const EdgeInsets.all(0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     textStyle: FlutterFlowTheme.of(context)
