@@ -90,12 +90,10 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
       ),
       iconColor: WidgetStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(WidgetState.disabled) &&
-              widget.disabledIconColor != null) {
+          if (states.contains(WidgetState.disabled) && widget.disabledIconColor != null) {
             return widget.disabledIconColor;
           }
-          if (states.contains(WidgetState.hovered) &&
-              widget.hoverIconColor != null) {
+          if (states.contains(WidgetState.hovered) && widget.hoverIconColor != null) {
             return widget.hoverIconColor;
           }
           return iconColor;
@@ -103,12 +101,10 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
       ),
       backgroundColor: WidgetStateProperty.resolveWith<Color?>(
         (states) {
-          if (states.contains(WidgetState.disabled) &&
-              widget.disabledColor != null) {
+          if (states.contains(WidgetState.disabled) && widget.disabledColor != null) {
             return widget.disabledColor;
           }
-          if (states.contains(WidgetState.hovered) &&
-              widget.hoverColor != null) {
+          if (states.contains(WidgetState.hovered) && widget.hoverColor != null) {
             return widget.hoverColor;
           }
 

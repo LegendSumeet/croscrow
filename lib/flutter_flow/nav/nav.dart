@@ -28,7 +28,6 @@ class AppStateNotifier extends ChangeNotifier {
 
   BaseAuthUser? initialUser;
   BaseAuthUser? user;
-  bool showSplashImage = true;
   String? _redirectLocation;
 
   /// Determines whether the app will refresh and build again when a sign
@@ -38,7 +37,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// Otherwise, this will trigger a refresh and interrupt the action(s).
   bool notifyOnAuthChange = true;
 
-  bool get loading => user == null || showSplashImage;
+  bool get loading => user == null;
   bool get loggedIn => user?.loggedIn ?? false;
   bool get initiallyLoggedIn => initialUser?.loggedIn ?? false;
   bool get shouldRedirect => loggedIn && _redirectLocation != null;
@@ -67,10 +66,6 @@ class AppStateNotifier extends ChangeNotifier {
     updateNotifyOnAuthChange(true);
   }
 
-  void stopShowingSplashImage() {
-    showSplashImage = false;
-    notifyListeners();
-  }
 }
 
 GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
@@ -79,15 +74,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? const NavBarPage()
-          : const HomepageCopyCopyCopyCopyWidget(),
+          ? const NavBarPage(initialPage: 'homepageCopyCopyCopyCopy')
+          : const NavBarPage(initialPage: 'homepageCopyCopyCopyCopy'),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? const NavBarPage()
-              : const HomepageCopyCopyCopyCopyWidget(),
+          builder: (context, _) => const NavBarPage(initialPage: 'homepageCopyCopyCopyCopy'),
         ),
         FFRoute(
           name: 'Auth2',
@@ -192,14 +185,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const BranddataWidget(),
         ),
         FFRoute(
-          name: 'cart62',
-          path: '/cart62',
-          builder: (context, params) => const Cart62Widget(),
-        ),
-        FFRoute(
           name: 'homepageCopyCopyCopy',
           path: '/homepageCopyCopyCopy',
-          builder: (context, params) => const HomepageCopyCopyCopyWidget(),
+          builder: (context, params) => const HomepageCopyCopyCopyCopyWidget(),
         ),
         FFRoute(
           name: 'catpage',
@@ -339,7 +327,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homepageCopyCopyCopyCopy',
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'homepageCopyCopyCopyCopy')
-              : const HomepageCopyCopyCopyCopyWidget(),
+              : const NavBarPage(initialPage: 'homepageCopyCopyCopyCopy'),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -525,21 +513,12 @@ class FFRoute {
                   builder: (context, _) => builder(context, ffParams),
                 )
               : builder(context, ffParams);
-          final child = appStateNotifier.loading
-              ? Container(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  child: Image.asset(
-                    'assets/images/Untitled_design_(35).png',
-                    fit: BoxFit.contain,
-                  ),
-                )
-              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition
               ? CustomTransitionPage(
                   key: state.pageKey,
-                  child: child,
+                  child: PushNotificationsHandler(child: page),
                   transitionDuration: transitionInfo.duration,
                   transitionsBuilder:
                       (context, animation, secondaryAnimation, child) =>
@@ -556,7 +535,7 @@ class FFRoute {
                     child,
                   ),
                 )
-              : MaterialPage(key: state.pageKey, child: child);
+              : MaterialPage(key: state.pageKey, child: PushNotificationsHandler(child: page));
         },
         routes: routes,
       );

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
+import 'package:flutter/cupertino.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 
@@ -146,9 +147,19 @@ class ItemsRecord extends FirestoreRecord {
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('items');
+  static Stream<ItemsRecord?> getDocument(DocumentReference<Object?>? ref) {
+    if (ref == null) {
+      return Stream.value(null); // Emit a `null` if `ref` is null
+    }
+    return ref.snapshots().map((snapshot) {
+      if (!snapshot.exists) {
+        return null; // Emit `null` if the document does not exist
+      }
+      return ItemsRecord.fromSnapshot(snapshot);
+    });
+  }
 
-  static Stream<ItemsRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => ItemsRecord.fromSnapshot(s));
+
 
   static Future<ItemsRecord> getDocumentOnce(DocumentReference ref) =>
       ref.get().then((s) => ItemsRecord.fromSnapshot(s));

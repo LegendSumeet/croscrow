@@ -51,7 +51,7 @@ class _Card11OptionsWidgetState extends State<Card11OptionsWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
-      child: StreamBuilder<ItemsRecord>(
+      child: StreamBuilder<ItemsRecord?>(
         stream: ItemsRecord.getDocument(widget.itemref!),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
