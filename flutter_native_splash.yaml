@@ -10,5 +10,5 @@ flutter_native_splash:
   ios: true  # Enable splash for iOS
   web: true  # Enable splash for web
 
-  image: "assets/images/adaptive_foreground_icon.png"  # Image for splash screen (light theme)
-  image_dark: "assets/images/adaptive_foreground_icon.png"  # Image for splash screen (dark theme)
+  image: "assets/images/native_logo.gif"  # Image for splash screen (light theme)
+  image_dark: "assets/images/native_logo.gif"  # Image for splash screen (dark theme)
